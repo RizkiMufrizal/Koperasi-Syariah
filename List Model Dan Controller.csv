@@ -1,0 +1,16 @@
+User,,Anggota,,SimpananAnggota,,Pembiayaan,,AngsuranPembiayaan,,PinjamanInstan,,BiayaOperasional,,BiayaAsset,
+ambilUser,,ambilAnggota,,ambilSimpananAnggota,,ambilPembiayaan,,ambilAngsuranPembiayaan,,ambilPinjamanInstan,,ambilBiayaOperasional,,ambilBiayaAsset,
+simpanUser,,simpanAnggota,,simpanSimpananAnggota,,simpanPembiayaan,,simpanAngsuranPembiayaan,,simpanPinjamanInstan,,simpanBiayaOperasional,,simpanBiayaAsset,
+updateUser,,cariAnggota,,cariSimpananAnggota,,,,,,updatePinjamanInstan,,,,,
+hapusUser,,hapusAnggota,,,,,,,,,,,,,
+loginUser,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+UserController,keterangan,AnggotaController,keterangan,SimpananAnggotaController,keterangan,PembiayaanController,keterangan,AngsuranPembiayaanController,keterangan,PinjamanInstanController,keterangan,BiayaOperasionalController,keterangan,BiayaAssetController,keterangan
+index,tampil data user,index,tampil data anggota,index,tampil data simpanan anggota,index,tampil data pembiayaan,index,tampil data angsuran pembiayaan,index,tampil data pinjaman instan,index,tampil data,index,tampil data
+tambahUser,halaman form user,tambahAnggota,halaman form anggota,tambahSimpananAnggota,halaman form simpanan anggota,tambahPembiayaan,halaman form pembiayaan,tambahAngsuranPembiayaan,halaman form,tambahPinjamanInstan,halaman form,tambahBiayaOperasional,halaman form,tambahBiayaAsset,halaman form
+simpanUser,simpan user dan redirect ke halaman index,simpanAnggota,simpan anggota dan redirect ke halaman index,SimpananSimpananAnggota,proses simpan data,simpanPembiayaan,proses simpan pembiayaan,simpanAngsuranPembiayaan,proses simpan angsuran pembiayaan,simpanPinjamanInstan,proses simpan data,simpanBiayaOperasional,prosess simpan data,simpanBiayaAsset,proses simpan data
+editUser,halaman form edit user,cariAnggota,proses cari data anggota,cariSimpananAnggota,proses cari data,,,,,editPinjamanInstan,halaman form,,,,
+updateUser,edit user dan redirect ke halaman index,hapusAnggota,proses hapus data anggota dan redirect,,,,,,,updatePinjamanInstan,proses update data,,,,
+hapusUser,hapus user dan redirect ke halaman index,,,,,,,,,,,,,,
+login,halaman form login,,,,,,,,,,,,,,
+loginProcess,proses login dan redirect,,,,,,,,,,,,,,
