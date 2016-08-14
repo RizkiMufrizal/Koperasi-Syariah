@@ -1,10 +1,11 @@
+/*
+* @Author: Rizki Mufrizal
+* @Date:   2016-08-14 13:18:07
+* @Last Modified by:   RizkiMufrizal
+* @Last Modified time: 2016-08-14 13:19:43
+*/
+
 /**
- *
- * @Author Rizki Mufrizal <mufrizalrizki@gmail.com> <https://RizkiMufrizal.github.io>
- * @Since Agu 13, 2016
- * @Time 17:21:30 PM
- * @Encoding UTF-8
- * @Project Koperasi-Syariah
  * tabel tb_pembiayaan belum selesai, dan column biaya_administrasi
  */
 
