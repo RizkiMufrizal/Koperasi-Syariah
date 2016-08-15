@@ -1,4 +1,4 @@
-# Koperasi-Syariah
+# Koperasi Syariah
 
 ## Fitur Aplikasi :
 
