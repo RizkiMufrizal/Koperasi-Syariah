@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 12:42:49
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 12:54:12
+ * @Last Modified time: 2016-08-15 13:52:40
  */
 
 class User extends CI_Model
@@ -14,6 +14,17 @@ class User extends CI_Model
      */
     public function ambilUser()
     {
+        return $this->db->get('tb_user')->result();
+    }
+
+    /**
+     * function ambil satu user
+     * @param  [type] $username [description]
+     * @return [type]           [description]
+     */
+    public function ambilSatuUser($username)
+    {
+        $this->db->where('username', $username);
         return $this->db->get('tb_user')->result();
     }
 
