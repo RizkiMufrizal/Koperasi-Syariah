@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 13:06:36
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 15:28:48
+ * @Last Modified time: 2016-08-15 22:53:44
  */
 
 class UserController extends CI_Controller
@@ -141,7 +141,13 @@ class UserController extends CI_Controller
             if ($this->bcrypt->check_password($password, $user[0]->password)) {
                 $sessionArray = array('username' => $user[0]->username, 'loggedIn' => true);
                 $this->session->set_userdata($sessionArray);
-                return redirect('admin');
+
+                if ($user[0]->role == 'ROLE_ADMIN') {
+                    return redirect('admin');
+                } else {
+                    return redirect('user/IndexController/index');
+                }
+
             } else {
                 $this->session->set_flashdata('pesan', 'maaf, password anda salah');
                 return redirect('/');
