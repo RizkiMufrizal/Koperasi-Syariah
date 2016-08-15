@@ -2,19 +2,16 @@
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
 * @Last Modified by:   RizkiMufrizal
-* @Last Modified time: 2016-08-14 13:19:43
+* @Last Modified time: 2016-08-15 12:11:42
 */
-
-/**
- * tabel tb_pembiayaan belum selesai, dan column biaya_administrasi
- */
 
 CREATE DATABASE koperasi_syariah;
 USE koperasi_syariah;
 
 CREATE TABLE tb_user(
   username VARCHAR(50) NOT NULL PRIMARY KEY,
-  password VARCHAR(100) NOT NULL
+  password VARCHAR(100) NOT NULL,
+  role CHAR(11) NOT NULL
 )ENGINE=INNODB;
 
 CREATE TABLE tb_anggota(
@@ -49,8 +46,6 @@ CREATE TABLE tb_simpanan_anggota(
     ON UPDATE CASCADE
 )ENGINE=INNODB;
 
---- masih belum
-
 CREATE TABLE tb_pembiayaan(
   id_pembiayaan VARCHAR(50) NOT NULL PRIMARY KEY,
   tanggal_peminjaman DATE NOT NULL,
@@ -58,20 +53,20 @@ CREATE TABLE tb_pembiayaan(
   pembiayaan DECIMAL NOT NULL,
   biaya_administrasi DECIMAL NOT NULL,
   jenis_pembiayaan CHAR(15) NOT NULL,
+  margin INT NOT NULL,
+  total_pembiayaan DECIMAL NOT NULL,
+  status TINYINT NOT NULL,
   id_anggota VARCHAR(50) NOT NULL,
   FOREIGN KEY(id_anggota) REFERENCES tb_anggota(id_anggota)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 )ENGINE=INNODB;
 
---- masih belum
-
 CREATE TABLE tb_angsuran_pembiayaan(
   id_angsuran_pembiayaan VARCHAR(50) NOT NULL PRIMARY KEY,
   tanggal_pembayaran_angsuran DATE NOT NULL,
   bagi_hasil_koperasi DECIMAL NOT NULL,
   bagi_hasil_anggota DECIMAL NOT NULL,
-  biaya_administrasi DECIMAL NOT NULL,
   keterangan CHAR(15) NOT NULL,
   id_pembiayaan VARCHAR(50) NOT NULL,
   FOREIGN KEY(id_pembiayaan) REFERENCES tb_pembiayaan(id_pembiayaan)
