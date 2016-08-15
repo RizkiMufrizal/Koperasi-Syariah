@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 13:06:36
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 22:53:44
+ * @Last Modified time: 2016-08-15 23:37:42
  */
 
 class UserController extends CI_Controller
@@ -134,7 +134,7 @@ class UserController extends CI_Controller
 
         $user = $this->User->loginUser($username);
 
-        if ($user == null) {
+        if (sizeof($user) == 0) {
             $this->session->set_flashdata('pesan', 'maaf, user tidak tersedia');
             return redirect('/');
         } else {
@@ -153,6 +153,13 @@ class UserController extends CI_Controller
                 return redirect('/');
             }
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata(array('loggedIn', 'username'));
+        $this->session->set_flashdata('logout', 'anda berhasil logout');
+        return redirect('/');
     }
 
 }
