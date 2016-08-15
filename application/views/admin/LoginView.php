@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 15:17:19
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 15:31:43
+ * @Last Modified time: 2016-08-15 23:38:29
  */
 -->
 
@@ -26,11 +26,16 @@
                             <?php if ($this->session->flashdata('pesan') != null) {?>
                                 <div id="error" style="text-align: center" class="alert alert-danger">
                                     <a href="" class="close" data-dismiss="alert"> &times; </a>
-                                    <strong>Error</strong><p></p> Username Dan Password Salah
+                                    <strong>Error</strong><p></p> <?php echo $this->session->flashdata('pesan'); ?>
+                                </div>
+                            <?php } else if ($this->session->flashdata('logout') != null) {?>
+                                <div id="logout" style="text-align: center" class="alert alert-success">
+                                    <a href="" class="close" data-dismiss="alert"> &times; </a>
+                                    <strong>Info</strong><p></p> <?php echo $this->session->flashdata('logout'); ?>
                                 </div>
                             <?php }?>
 
-                            <form role="form" action="<?php echo base_url(); ?>index.php/UserController/prosesLogin">
+                            <form role="form" action="<?php echo base_url(); ?>index.php/UserController/prosesLogin" method="post">
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="Username" name="username" type="text" autofocus>
@@ -58,6 +63,9 @@
             jQuery(document).ready(function(){
                 setTimeout(function(){
                     jQuery('#error').fadeOut('slow');
+                }, 3000);
+                setTimeout(function(){
+                    jQuery('#logout').fadeOut('slow');
                 }, 3000);
             });
         </script>
