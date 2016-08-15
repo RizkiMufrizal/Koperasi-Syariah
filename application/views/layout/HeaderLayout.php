@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 23:31:25
+ * @Last Modified time: 2016-08-16 02:20:03
  */
 -->
 
@@ -48,9 +48,19 @@
                     </div>
                     <!-- /input-group -->
                 </li>
+
+                <?php if ($this->session->userdata('role') == 'ROLE_ADMIN') {?>
                 <li>
-                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/UserController/index"><i class="fa fa-dashboard fa-fw"></i> Data User</a>
+                </li>
+                <?php } else {?>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/user/IndexController/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <?php }?>
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
