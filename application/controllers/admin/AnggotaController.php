@@ -2,7 +2,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 14:40:20
+ * @Last Modified time: 2016-08-15 15:24:54
  */
 
 <?php
@@ -37,7 +37,7 @@ class AnggotaController extends CI_Controller
             'status'                   => $status,
             'username'                 => $username);
 
-        $this->Anggota->updateAnggota($data);
+        $this->Anggota->updateAnggota($id_anggota, $data);
 
         redirect('AnggotaController/index');
     }
@@ -47,7 +47,6 @@ class AnggotaController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Anggota'); //load model Anggota yang berada di folder model
-        $this->load->helper(array('url')); //load helper url
     }
 
     //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
