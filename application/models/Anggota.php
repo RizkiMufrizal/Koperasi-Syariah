@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 11:44:57
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 14:40:38
+ * @Last Modified time: 2016-08-15 15:24:47
  */
 
 class Anggota extends CI_Model
