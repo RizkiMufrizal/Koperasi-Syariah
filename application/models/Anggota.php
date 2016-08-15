@@ -4,51 +4,39 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 11:44:57
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 12:54:38
+ * @Last Modified time: 2016-08-15 14:40:38
  */
 
 class Anggota extends CI_Model
 {
-    //ambil data anggota
+    //Ambil Data Anggota
     public function ambilAnggota()
     {
         return $this->db->get('tb_anggota');
     }
 
-    //simpan data anggota
-    public function simpanAnggota()
+    //Ambil 1 Data Anggota
+    public function getSingleAnggota($id_anggota)
     {
-        $id_anggota          = $this->input->post('id_anggota');
-        $nama                = $this->input->post('nama');
-        $tanggal_pendaftaran = $this->input->post('tanggal_pendaftaran');
-        $telepon             = $this->input->post('telepon');
-        $tempat_lahir        = $this->input->post('tempat_lahir');
-        $tanggal_lahir       = $this->input->post('tanggal_lahir');
-        $jenis_kelamin       = $this->input->post('jenis_kelamin');
-        $rembug              = $this->input->post('rembug');
-        $setoran_awal        = $this->input->post('setoran_awal');
-        $alamat              = $this->input->post('alamat');
-        $status              = $this->input->post('status');
-        $username            = $this->input->post('username');
-
-        $this->db->insert('tb_anggota', array('id_anggota' => $id_anggota,
-            'nama'                                             => $nama,
-            'tanggal_pendaftaran'                              => $tanggal_pendaftaran,
-            'telepon'                                          => $telepon,
-            'tempat_lahir'                                     => $tempat_lahir,
-            'tanggal_lahir'                                    => $tanggal_lahir,
-            'jenis_kelamin'                                    => $jenis_kelamin,
-            'rembug'                                           => $rembug,
-            'setoran_awal'                                     => $setoran_awal,
-            'alamat'                                           => $alamat),
-            'username' => $username);
-
+        return $query = $this->db->get_where('tb_anggota', array('id_anggota' => $id_anggota));
     }
 
-    //hapus data anggota
+    //Hapus Data Anggota
     public function hapusAnggota($id_anggota)
     {
         $this->db->delete('tb_anggota', array('id_anggota' => $id_anggota));
+    }
+
+    //Simpan Data Anggota
+    public function simpanAnggota($data)
+    {
+        $this->db->insert('tb_anggota', $data);
+    }
+
+    public function updateAnggota($id_anggota, $data)
+    {
+        $this->db->where('id_anggota', $id_anggota);
+        $this->db->update('tb_anggota', $data);
     }
 
 }
