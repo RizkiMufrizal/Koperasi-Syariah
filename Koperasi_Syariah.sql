@@ -2,7 +2,7 @@
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
 * @Last Modified by:   RizkiMufrizal
-* @Last Modified time: 2016-08-15 12:11:42
+* @Last Modified time: 2016-08-15 15:39:35
 */
 
 CREATE DATABASE koperasi_syariah;
@@ -105,3 +105,5 @@ CREATE TABLE tb_biaya_asset(
   keterangan TEXT NOT NULL,
   biaya DECIMAL NOT NULL
 )ENGINE=INNODB;
+
+INSERT INTO tb_user(username, password, role) VALUES('admin', '$2a$06$VOi.SX2lF4UE3IvAivHHYO9eqyyiPnaLu4RDN3DNYpvZG3Jk3q.NS', 'ROLE_ADMIN');
