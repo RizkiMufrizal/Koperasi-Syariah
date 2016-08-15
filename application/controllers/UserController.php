@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 13:06:36
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 02:17:02
+ * @Last Modified time: 2016-08-16 02:33:07
  */
 
 class UserController extends CI_Controller
