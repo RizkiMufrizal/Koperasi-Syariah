@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 16:18:04
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 22:59:36
+ * @Last Modified time: 2016-08-15 23:43:00
  */
 
 class IndexController extends CI_Controller
@@ -27,4 +27,5 @@ class IndexController extends CI_Controller
     {
         return $this->load->view('user/IndexView');
     }
+
 }

@@ -3,12 +3,11 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 15:04:35
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 23:39:13
+ * @Last Modified time: 2016-08-15 23:42:46
  */
 
 class IndexController extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -28,4 +27,5 @@ class IndexController extends CI_Controller
     {
         return $this->load->view('admin/IndexView');
     }
+
 }
