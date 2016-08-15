@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 13:06:36
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 14:29:16
+ * @Last Modified time: 2016-08-15 15:28:48
  */
 
 class UserController extends CI_Controller
@@ -11,6 +11,7 @@ class UserController extends CI_Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->load->model('User');
     }
 
@@ -119,7 +120,7 @@ class UserController extends CI_Controller
             'name' => $this->security->get_csrf_token_name(),
             'hash' => $this->security->get_csrf_hash(),
         );
-        return $this->load->view('LoginView', $csrf);
+        return $this->load->view('admin/LoginView', $csrf);
     }
 
     /**
@@ -134,12 +135,16 @@ class UserController extends CI_Controller
         $user = $this->User->loginUser($username);
 
         if ($user == null) {
-            return redirect('login');
+            $this->session->set_flashdata('pesan', 'maaf, user tidak tersedia');
+            return redirect('/');
         } else {
             if ($this->bcrypt->check_password($password, $user[0]->password)) {
+                $sessionArray = array('username' => $user[0]->username, 'loggedIn' => true);
+                $this->session->set_userdata($sessionArray);
                 return redirect('admin');
             } else {
-                return redirect('login');
+                $this->session->set_flashdata('pesan', 'maaf, password anda salah');
+                return redirect('/');
             }
         }
     }
