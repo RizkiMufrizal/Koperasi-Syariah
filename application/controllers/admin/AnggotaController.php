@@ -2,19 +2,12 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 15:18:33
+ * @Last Modified time: 2016-08-15 15:24:54
  */
 
 <?php
 class AnggotaController extends CI_Controller
 {
-    //File Constructor
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('Anggota'); //load model Anggota yang berada di folder model
-    }
-
     //Update 1 Data Anggota
     public function UpdateAnggota()
     {
@@ -47,6 +40,13 @@ class AnggotaController extends CI_Controller
         $this->Anggota->updateAnggota($id_anggota, $data);
 
         redirect('AnggotaController/index');
+    }
+
+    //File Constructor
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Anggota'); //load model Anggota yang berada di folder model
     }
 
     //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
