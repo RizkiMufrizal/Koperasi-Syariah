@@ -7,7 +7,9 @@
 * registrasi anggota
 * **login dan logout**
 * edit data anggota
-* lihat simpanan, pembiayaan dan pinjaman instan
+* **lihat simpanan anggota**
+* lihat pembiayaan
+* lihat pinjaman instan
 
 ### Admin / Ketua
 
