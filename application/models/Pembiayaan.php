@@ -1,9 +1,10 @@
 <?php
+
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 12:56:42
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 15:25:06
+ * @Last Modified time: 2016-08-15 16:14:54
  */
 
 class Pembiayaan extends CI_Model
