@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 06:49:17
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-16 13:42:52
  */
 
 class AnggotaController extends CI_Controller
@@ -20,7 +20,7 @@ class AnggotaController extends CI_Controller
     public function index()
     {
         $data['record'] = $this->Anggota->ambilAnggota();
-        $this->load->view('TampilAnggotaView', $data);
+        $this->load->view('admin/AnggotaIndexView', $data);
     }
 
     //Menampilkan Form Untuk Menambah Data Anggota
@@ -31,7 +31,7 @@ class AnggotaController extends CI_Controller
             'hash' => $this->security->get_csrf_hash(),
         );
 
-        $this->load->view('TambahAnggotaView', $csrf);
+        $this->load->view('admin/AnggotaTambahView', $csrf);
     }
 
     //Untuk Menyimpan Data Anggota Ke Dalam Tabel Anggota
@@ -77,7 +77,7 @@ class AnggotaController extends CI_Controller
             'name'   => $this->security->get_csrf_token_name(),
             'hash'   => $this->security->get_csrf_hash(),
         );
-        $this->load->view('EditAnggotaView', $data);
+        $this->load->view('admin/AnggotaEditView', $data);
     }
 
     //Update 1 Data Anggota
