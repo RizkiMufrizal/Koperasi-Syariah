@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-15 13:50:06
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:25:11
+ * @Last Modified time: 2016-08-16 20:00:21
  */
 
 class SimpananAnggotaController extends CI_Controller
@@ -12,6 +12,8 @@ class SimpananAnggotaController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('SimpananAnggota');
+        $this->load->model('User');
+        $this->load->model('Anggota');
     }
 
     /**
@@ -120,5 +122,23 @@ class SimpananAnggotaController extends CI_Controller
         );
         $this->SimpananAnggota->simpanSimpananAnggota($simpananAnggota);
         return redirect('admin/SimpananAnggotaController/index/' . $idAnggota);
+    }
+
+    /**
+     * batas user
+     */
+
+    /**
+     * function untuk halaman simpanan anggota sebagai user
+     * @return [type] [description]
+     */
+    public function indexUser()
+    {
+        $username = $this->session->userdata('username');
+        $user     = $this->User->ambilSatuUser($username);
+        $anggota  = $this->Anggota->ambilAnggotaBerdasarkanUsername($user[0]->username);
+
+        $data['simpananAnggota'] = $this->SimpananAnggota->ambilSimpananAnggota($anggota[0]->id_anggota);
+        return $this->load->view('user/SimpananAnggotaIndexView', $data);
     }
 }
