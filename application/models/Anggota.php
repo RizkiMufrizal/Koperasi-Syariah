@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 11:44:57
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 13:18:18
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-16 14:55:10
  */
 
 class Anggota extends CI_Model
@@ -19,6 +19,18 @@ class Anggota extends CI_Model
     public function simpanAnggota($data)
     {
         $this->db->insert('tb_anggota', $data);
+    }
+
+    //Ambil Jumlah Anggota
+    public function ambilCountAnggota()
+    {
+        return $this->db->count_all_results('tb_anggota');
+    }
+
+    public function ambilDataAnggotaTerbaru()
+    {
+        $this->db->order_by('id', 'DESC');
+        return $this->db->get('tb_anggota')->result();
     }
 
     //Ambil 1 Data Anggota
