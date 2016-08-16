@@ -3,11 +3,22 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 12:42:49
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 13:52:40
+ * @Last Modified time: 2016-08-15 23:43:32
  */
 
 class User extends CI_Model
 {
+    /**
+     * function ambil satu user
+     * @param  [type] $username [description]
+     * @return [type]           [description]
+     */
+    public function ambilSatuUser($username)
+    {
+        $this->db->where('username', $username);
+        return $this->db->get('tb_user')->result();
+    }
+
     /**
      * ambil data user
      * @return [type] [description]
@@ -18,11 +29,22 @@ class User extends CI_Model
     }
 
     /**
-     * function ambil satu user
+     * hapus user
      * @param  [type] $username [description]
      * @return [type]           [description]
      */
-    public function ambilSatuUser($username)
+    public function deleteUser($username)
+    {
+        $this->db->where('username', $username);
+        $this->db->delete('tb_user');
+    }
+
+    /**
+     * function untuk login user
+     * @param  [type] $username [description]
+     * @return [type]           [description]
+     */
+    public function loginUser($username)
     {
         $this->db->where('username', $username);
         return $this->db->get('tb_user')->result();
@@ -48,28 +70,6 @@ class User extends CI_Model
     {
         $this->db->where('username', $username);
         $this->db->update('tb_user', $user);
-    }
-
-    /**
-     * hapus user
-     * @param  [type] $username [description]
-     * @return [type]           [description]
-     */
-    public function deleteUser($username)
-    {
-        $this->db->where('username', $username);
-        $this->db->delete('tb_user');
-    }
-
-    /**
-     * function untuk login user
-     * @param  [type] $username [description]
-     * @return [type]           [description]
-     */
-    public function loginUser($username)
-    {
-        $this->db->where('username', $username);
-        return $this->db->get('tb_user')->result();
     }
 
 }
