@@ -1,8 +1,8 @@
 /*
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
-* @Last Modified by:   RizkiMufrizal
-* @Last Modified time: 2016-08-15 23:10:36
+* @Last Modified by:   Aviv Arifian D
+* @Last Modified time: 2016-08-16 14:53:10
 */
 
 CREATE DATABASE koperasi_syariah;
@@ -16,6 +16,7 @@ CREATE TABLE tb_user(
 
 CREATE TABLE tb_anggota(
   id_anggota VARCHAR(50) NOT NULL PRIMARY KEY,
+  id INTEGER NOT NULL,
   nama VARCHAR(50) NOT NULL,
   tanggal_pendaftaran DATE NOT NULL,
   telepon CHAR(15) NOT NULL,
