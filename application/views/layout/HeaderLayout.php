@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 02:20:03
+ * @Last Modified time: 2016-08-16 13:17:49
  */
 -->
 
@@ -55,6 +55,9 @@
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/UserController/index"><i class="fa fa-dashboard fa-fw"></i> Data User</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index"><i class="fa fa-dashboard fa-fw"></i> Data Anggota</a>
                 </li>
                 <?php } else {?>
                 <li>
