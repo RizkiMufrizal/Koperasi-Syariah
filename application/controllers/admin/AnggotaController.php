@@ -1,47 +1,14 @@
+<?php
+
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-15 15:24:54
+ * @Last Modified time: 2016-08-16 06:49:17
  */
 
-<?php
 class AnggotaController extends CI_Controller
 {
-    //Update 1 Data Anggota
-    public function UpdateAnggota()
-    {
-        $id_anggota          = $this->input->post('id_anggota');
-        $nama                = $this->input->post('nama');
-        $tanggal_pendaftaran = $this->input->post('tanggal_pendaftaran');
-        $telepon             = $this->input->post('telepon');
-        $tempat_lahir        = $this->input->post('tempat_lahir');
-        $tanggal_lahir       = $this->input->post('tanggal_lahir');
-        $jenis_kelamin       = $this->input->post('jenis_kelamin');
-        $rembug              = $this->input->post('rembug');
-        $setoran_awal        = $this->input->post('setoran_awal');
-        $alamat              = $this->input->post('alamat');
-        $status              = $this->input->post('status');
-        $username            = $this->input->post('username');
-
-        $data = array('id_anggota' => $id_anggota,
-            'nama'                     => $nama,
-            'tanggal_pendaftaran'      => $tanggal_pendaftaran,
-            'telepon'                  => $telepon,
-            'tempat_lahir'             => $tempat_lahir,
-            'tanggal_lahir'            => $tanggal_lahir,
-            'jenis_kelamin'            => $jenis_kelamin,
-            'rembug'                   => $rembug,
-            'setoran_awal'             => $setoran_awal,
-            'alamat'                   => $alamat,
-            'status'                   => $status,
-            'username'                 => $username);
-
-        $this->Anggota->updateAnggota($id_anggota, $data);
-
-        redirect('AnggotaController/index');
-    }
-
     //File Constructor
     public function __construct()
     {
@@ -49,25 +16,22 @@ class AnggotaController extends CI_Controller
         $this->load->model('Anggota'); //load model Anggota yang berada di folder model
     }
 
-    //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
-    public function getSingleAnggota($id_anggota)
-    {
-        $data['record'] = $this->Anggota->getSingleAnggota($id_anggota)->result();
-        $this->load->view('v_editAnggota', $data);
-    }
-
-    //Untuk Menghapus Data Anggota
-    public function hapusAnggota($id_anggota)
-    {
-        $this->Anggota->simpanAnggota($id_anggota);
-        redirect('AnggotaController/index');
-    }
-
     //Menampilkan Data Anggota
     public function index()
     {
         $data['record'] = $this->Anggota->ambilAnggota();
-        $this->load->view('v_tampilAnggota', $data);
+        $this->load->view('TampilAnggotaView', $data);
+    }
+
+    //Menampilkan Form Untuk Menambah Data Anggota
+    public function tambahAnggota()
+    {
+        $csrf = array(
+            'name' => $this->security->get_csrf_token_name(),
+            'hash' => $this->security->get_csrf_hash(),
+        );
+
+        $this->load->view('TambahAnggotaView', $csrf);
     }
 
     //Untuk Menyimpan Data Anggota Ke Dalam Tabel Anggota
@@ -86,28 +50,75 @@ class AnggotaController extends CI_Controller
         $status              = $this->input->post('status');
         $username            = $this->input->post('username');
 
-        $data = array('id_anggota' => $id_anggota,
-            'nama'                     => $nama,
-            'tanggal_pendaftaran'      => $tanggal_pendaftaran,
-            'telepon'                  => $telepon,
-            'tempat_lahir'             => $tempat_lahir,
-            'tanggal_lahir'            => $tanggal_lahir,
-            'jenis_kelamin'            => $jenis_kelamin,
-            'rembug'                   => $rembug,
-            'setoran_awal'             => $setoran_awal,
-            'alamat'                   => $alamat,
-            'status'                   => $status,
-            'username'                 => $username);
+        $data = array(
+            'id_anggota'          => $id_anggota,
+            'nama'                => $nama,
+            'tanggal_pendaftaran' => $tanggal_pendaftaran,
+            'telepon'             => $telepon,
+            'tempat_lahir'        => $tempat_lahir,
+            'tanggal_lahir'       => $tanggal_lahir,
+            'jenis_kelamin'       => $jenis_kelamin,
+            'rembug'              => $rembug,
+            'setoran_awal'        => $setoran_awal,
+            'alamat'              => $alamat,
+            'status'              => $status,
+            'username'            => $username);
 
         $this->Anggota->simpanAnggota($data);
 
         redirect('AnggotaController/index');
     }
 
-    //Menampilkan Form Untuk Menambah Data Anggota
-    public function tambahAnggota()
+    //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
+    public function editAnggota($id_anggota)
     {
-        $this->load->view('v_tambahAnggota');
+        $data = array(
+            'record' => $this->Anggota->ambilSatuAnggota($id_anggota),
+            'name'   => $this->security->get_csrf_token_name(),
+            'hash'   => $this->security->get_csrf_hash(),
+        );
+        $this->load->view('EditAnggotaView', $data);
+    }
+
+    //Update 1 Data Anggota
+    public function UpdateAnggota()
+    {
+        $id_anggota          = $this->input->post('id_anggota');
+        $nama                = $this->input->post('nama');
+        $tanggal_pendaftaran = $this->input->post('tanggal_pendaftaran');
+        $telepon             = $this->input->post('telepon');
+        $tempat_lahir        = $this->input->post('tempat_lahir');
+        $tanggal_lahir       = $this->input->post('tanggal_lahir');
+        $jenis_kelamin       = $this->input->post('jenis_kelamin');
+        $rembug              = $this->input->post('rembug');
+        $setoran_awal        = $this->input->post('setoran_awal');
+        $alamat              = $this->input->post('alamat');
+        $status              = $this->input->post('status');
+        $username            = $this->input->post('username');
+
+        $data = array(
+            'nama'                => $nama,
+            'tanggal_pendaftaran' => $tanggal_pendaftaran,
+            'telepon'             => $telepon,
+            'tempat_lahir'        => $tempat_lahir,
+            'tanggal_lahir'       => $tanggal_lahir,
+            'jenis_kelamin'       => $jenis_kelamin,
+            'rembug'              => $rembug,
+            'setoran_awal'        => $setoran_awal,
+            'alamat'              => $alamat,
+            'status'              => $status,
+            'username'            => $username);
+
+        $this->Anggota->updateAnggota($id_anggota, $data);
+
+        redirect('AnggotaController/index');
+    }
+
+    //Untuk Menghapus Data Anggota
+    public function hapusAnggota($id_anggota)
+    {
+        $this->Anggota->hapusAnggota($id_anggota);
+        redirect('AnggotaController/index');
     }
 
 }
