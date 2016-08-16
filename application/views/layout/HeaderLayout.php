@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 13:17:49
+ * @Last Modified time: 2016-08-16 19:57:37
  */
 -->
 
@@ -62,6 +62,9 @@
                 <?php } else {?>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/user/IndexController/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/indexUser"><i class="fa fa-dashboard fa-fw"></i> Data Simpanan Anggota</a>
                 </li>
                 <?php }?>
             </ul>
