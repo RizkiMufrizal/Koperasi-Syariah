@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 11:44:57
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 14:55:10
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-16 19:59:01
  */
 
 class Anggota extends CI_Model
@@ -51,6 +51,17 @@ class Anggota extends CI_Model
     public function hapusAnggota($id_anggota)
     {
         $this->db->delete('tb_anggota', array('id_anggota' => $id_anggota));
+    }
+
+    /**
+     * untuk mengambil data anggota berdasarkan username
+     * @param  [type] $username [description]
+     * @return [type]           [description]
+     */
+    public function ambilAnggotaBerdasarkanUsername($username)
+    {
+        $this->db->where('username', $username);
+        return $this->db->get('tb_anggota')->result();
     }
 
 }
