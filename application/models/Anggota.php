@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 11:44:57
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 06:27:57
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-16 13:18:18
  */
 
 class Anggota extends CI_Model
@@ -12,7 +12,7 @@ class Anggota extends CI_Model
     //Ambil Data Anggota
     public function ambilAnggota()
     {
-        return $this->db->get('tb_anggota');
+        return $this->db->get('tb_anggota')->result();
     }
 
     //Simpan Data Anggota
