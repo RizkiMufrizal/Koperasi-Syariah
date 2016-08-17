@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 09:42:41
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 11:44:46
+ * @Last Modified time: 2016-08-17 11:56:33
  */
 -->
 
@@ -58,6 +58,7 @@
                                 <th class="text-center">Margin</th>
                                 <th class="text-center">Total Pembiayaan</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,6 +72,13 @@
                                     <td class="text-right"><?php echo $s->margin; ?></td>
                                     <td class="text-right"><?php echo number_format($s->total_pembiayaan, 0, ',', '.'); ?></td>
                                     <td><?php if ($s->status == 0) {echo "BELUM LUNAS";} else {echo "SUDAH LUNAS";}?></td>
+                                    <td class="text-center">
+                                        <a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/index/<?php echo $s->id_pembiayaan; ?>">
+                                            <button class="btn btn-success">
+                                                Bayar Angsuran
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php }?>
                         </tbody>
