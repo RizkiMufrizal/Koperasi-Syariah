@@ -1,8 +1,8 @@
 /*
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
-* @Last Modified by:   Aviv Arifian D
-* @Last Modified time: 2016-08-16 14:53:10
+* @Last Modified by:   RizkiMufrizal
+* @Last Modified time: 2016-08-17 09:55:23
 */
 
 CREATE DATABASE koperasi_syariah;
@@ -68,7 +68,7 @@ CREATE TABLE tb_angsuran_pembiayaan(
   tanggal_pembayaran_angsuran DATE NOT NULL,
   bagi_hasil_koperasi DECIMAL NOT NULL,
   bagi_hasil_anggota DECIMAL NOT NULL,
-  keterangan CHAR(15) NOT NULL,
+  pembayaran_angsuran DECIMAL NOT NULL,
   id_pembiayaan VARCHAR(50) NOT NULL,
   FOREIGN KEY(id_pembiayaan) REFERENCES tb_pembiayaan(id_pembiayaan)
     ON DELETE CASCADE
