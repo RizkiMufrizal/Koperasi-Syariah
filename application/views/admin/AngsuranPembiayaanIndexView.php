@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 11:53:52
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 12:48:11
+ * @Last Modified time: 2016-08-17 13:17:45
  */
 -->
 
@@ -41,7 +41,7 @@
                             <tr>
                                 <th class="text-center">Tanggal Pembayaran Angsuran</th>
                                 <th class="text-center">Pembayaran Angsuran</th>
-                                <th class="text-center">Sisa_angsuran</th>
+                                <th class="text-center">Sisa Angsuran</th>
                                 <th class="text-center">Bagi Hasil Koperasi</th>
                                 <th class="text-center">Bagi Hasil Anggota</th>
                             </tr>
