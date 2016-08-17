@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 12:28:28
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 22:13:27
  */
 
 class AnggotaController extends CI_Controller
@@ -43,17 +43,20 @@ class AnggotaController extends CI_Controller
         $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
         $satukan = implode('-', $urutan);
 
-        $nama                = $this->input->post('nama');
-        $tanggal_pendaftaran = date('Y-m-d');
-        $telepon             = $this->input->post('telepon');
-        $tempat_lahir        = $this->input->post('tempat_lahir');
-        $tanggal_lahir       = $satukan;
-        $jenis_kelamin       = $this->input->post('jenis_kelamin');
-        $rembug              = $this->input->post('rembug');
-        $setoran_awal        = $this->input->post('setoran_awal');
-        $alamat              = $this->input->post('alamat');
-        $status              = $this->input->post('status');
-        $username            = $this->input->post('username');
+        $nama                    = $this->input->post('nama');
+        $tanggal_pendaftaran     = date('Y-m-d');
+        $telepon                 = $this->input->post('telepon');
+        $tempat_lahir            = $this->input->post('tempat_lahir');
+        $tanggal_lahir           = $satukan;
+        $jenis_kelamin           = $this->input->post('jenis_kelamin');
+        $rembug                  = $this->input->post('rembug');
+        $setoran_awal            = $this->input->post('setoran_awal');
+        $replaceRpSetoranAwal    = str_replace("Rp ", "", explode(".", $setoran_awal)[0]);
+        $replaceTitikSetoranAwal = str_replace(",", "", $replaceRpSetoranAwal);
+
+        $alamat   = $this->input->post('alamat');
+        $status   = $this->input->post('status');
+        $username = $this->input->post('username');
 
         $kode_rembug = "";
         $id          = 0;
@@ -127,7 +130,7 @@ class AnggotaController extends CI_Controller
             'tanggal_lahir'       => $tanggal_lahir,
             'jenis_kelamin'       => $jenis_kelamin,
             'rembug'              => $rembug,
-            'setoran_awal'        => $setoran_awal,
+            'setoran_awal'        => $replaceTitikSetoranAwal,
             'alamat'              => $alamat,
             'status'              => $status,
             'username'            => $username);

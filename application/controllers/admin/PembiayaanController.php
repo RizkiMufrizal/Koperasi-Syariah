@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:09:46
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 13:42:55
+ * @Last Modified time: 2016-08-17 22:07:58
  */
 
 class PembiayaanController extends CI_Controller
@@ -55,12 +55,16 @@ class PembiayaanController extends CI_Controller
         $id_pembiayaan       = $this->uuid->v4();
         $tanggal_peminjaman  = $this->input->post('tanggal_peminjaman');
         $tanggal_jatuh_tempo = $this->input->post('tanggal_jatuh_tempo');
-        $pembiayaan          = $this->input->post('pembiayaan');
-        $jenis_pembiayaan    = $this->input->post('jenis_pembiayaan');
-        $margin              = $this->input->post('margin');
-        $total_pembiayaan    = 0;
-        $status              = 0;
-        $id_anggota          = $idAnggota;
+
+        $pembiayaan             = $this->input->post('pembiayaan');
+        $replaceRpPembiayaan    = str_replace("Rp ", "", explode(".", $pembiayaan)[0]);
+        $replaceTitikPembiayaan = str_replace(",", "", $replaceRpPembiayaan);
+
+        $jenis_pembiayaan = $this->input->post('jenis_pembiayaan');
+        $margin           = $this->input->post('margin');
+        $total_pembiayaan = 0;
+        $status           = 0;
+        $id_anggota       = $idAnggota;
 
         $pembiayaanModel = $this->Pembiayaan->ambilPembiayaanTerbaru($idAnggota);
 
@@ -75,7 +79,7 @@ class PembiayaanController extends CI_Controller
 
             $hasilMargin = 0;
 
-            if ($pembiayaan >= 1000000) {
+            if ($replaceTitikPembiayaan >= 1000000) {
                 $biaya_administrasi = 17000;
             } else {
                 $biaya_administrasi = 12000;
@@ -83,21 +87,21 @@ class PembiayaanController extends CI_Controller
 
             if ($jenis_pembiayaan == 'Mudarobah') {
                 $hasilMargin      = 0;
-                $total_pembiayaan = $pembiayaan + $biaya_administrasi;
+                $total_pembiayaan = $replaceTitikPembiayaan + $biaya_administrasi;
             } else if ($jenis_pembiayaan == 'Musyarokah') {
                 $hasilMargin      = 0;
-                $total_pembiayaan = $pembiayaan + $biaya_administrasi;
+                $total_pembiayaan = $replaceTitikPembiayaan + $biaya_administrasi;
             } else {
                 $hasilMargin = $margin;
 
-                $total_pembiayaan = $pembiayaan + (($pembiayaan * ($margin / 100)) + $biaya_administrasi);
+                $total_pembiayaan = $replaceTitikPembiayaan + (($replaceTitikPembiayaan * ($margin / 100)) + $biaya_administrasi);
             }
 
             $data = array(
                 'id_pembiayaan'       => $id_pembiayaan,
                 'tanggal_peminjaman'  => $satukan1,
                 'tanggal_jatuh_tempo' => $satukan2,
-                'pembiayaan'          => $pembiayaan,
+                'pembiayaan'          => $replaceTitikPembiayaan,
                 'biaya_administrasi'  => $biaya_administrasi,
                 'jenis_pembiayaan'    => $jenis_pembiayaan,
                 'margin'              => $hasilMargin,
@@ -118,7 +122,7 @@ class PembiayaanController extends CI_Controller
 
                 $tigaKaliSimpananAnggota = $simpananAnggota[0]->saldo * 3;
 
-                if ($tigaKaliSimpananAnggota < $pembiayaan) {
+                if ($tigaKaliSimpananAnggota < $replaceTitikPembiayaan) {
                     $this->session->set_flashdata('pesan', 'maaf, saldo anda tidak mencukupi untuk pembiayaan');
                     return redirect('admin/PembiayaanController/index/' . $idAnggota);
                 } else {
@@ -132,7 +136,7 @@ class PembiayaanController extends CI_Controller
 
                     $hasilMargin = 0;
 
-                    if ($pembiayaan >= 1000000) {
+                    if ($replaceTitikPembiayaan >= 1000000) {
                         $biaya_administrasi = 17000;
                     } else {
                         $biaya_administrasi = 12000;
@@ -140,21 +144,21 @@ class PembiayaanController extends CI_Controller
 
                     if ($jenis_pembiayaan == 'Mudarobah') {
                         $hasilMargin      = 0;
-                        $total_pembiayaan = $pembiayaan + $biaya_administrasi;
+                        $total_pembiayaan = $replaceTitikPembiayaan + $biaya_administrasi;
                     } else if ($jenis_pembiayaan == 'Musyarokah') {
                         $hasilMargin      = 0;
-                        $total_pembiayaan = $pembiayaan + $biaya_administrasi;
+                        $total_pembiayaan = $replaceTitikPembiayaan + $biaya_administrasi;
                     } else {
                         $hasilMargin = $margin;
 
-                        $total_pembiayaan = $pembiayaan + (($pembiayaan * ($margin / 100)) + $biaya_administrasi);
+                        $total_pembiayaan = $replaceTitikPembiayaan + (($replaceTitikPembiayaan * ($margin / 100)) + $biaya_administrasi);
                     }
 
                     $data = array(
                         'id_pembiayaan'       => $id_pembiayaan,
                         'tanggal_peminjaman'  => $satukan1,
                         'tanggal_jatuh_tempo' => $satukan2,
-                        'pembiayaan'          => $pembiayaan,
+                        'pembiayaan'          => $replaceTitikPembiayaan,
                         'biaya_administrasi'  => $biaya_administrasi,
                         'jenis_pembiayaan'    => $jenis_pembiayaan,
                         'margin'              => $hasilMargin,

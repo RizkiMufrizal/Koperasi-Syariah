@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:10:55
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 13:09:08
+ * @Last Modified time: 2016-08-17 22:10:48
  */
 
 class AngsuranPembiayaanController extends CI_Controller
@@ -42,13 +42,15 @@ class AngsuranPembiayaanController extends CI_Controller
         $pembiayaan = $this->Pembiayaan->ambilPembiayaanTerbaruBerdasarkanIdPembiayaan($idPembiayaan);
         $angsuran   = $this->AngsuranPembiayaan->ambilAngsuranPembiayaanTerbaru($idPembiayaan);
 
-        $tanggal_pembayaran_angsuran = $this->input->post('tanggal_pembayaran_angsuran');
-        $pembayaran_angsuran         = $this->input->post('pembayaran_angsuran');
+        $tanggal_pembayaran_angsuran    = $this->input->post('tanggal_pembayaran_angsuran');
+        $pembayaran_angsuran            = $this->input->post('pembayaran_angsuran');
+        $replaceRpPembayaranAngsuran    = str_replace("Rp ", "", explode(".", $pembayaran_angsuran)[0]);
+        $replaceTitikPembayaranAngsuran = str_replace(",", "", $replaceRpPembayaranAngsuran);
 
         if ($angsuran == null) {
-            $sisa_angsuran = $pembiayaan[0]->total_pembiayaan - $pembayaran_angsuran;
+            $sisa_angsuran = $pembiayaan[0]->total_pembiayaan - $replaceTitikPembayaranAngsuran;
         } else {
-            $sisa_angsuran = $angsuran[0]->sisa_angsuran - $pembayaran_angsuran;
+            $sisa_angsuran = $angsuran[0]->sisa_angsuran - $replaceTitikPembayaranAngsuran;
         }
 
         $pisah   = explode('/', $tanggal_pembayaran_angsuran);
@@ -72,7 +74,7 @@ class AngsuranPembiayaanController extends CI_Controller
             'bagi_hasil_koperasi'         => $bagi_hasil_koperasi,
             'bagi_hasil_anggota'          => $bagi_hasil_anggota,
             'sisa_angsuran'               => $sisa_angsuran,
-            'pembayaran_angsuran'         => $pembayaran_angsuran,
+            'pembayaran_angsuran'         => $replaceTitikPembayaranAngsuran,
             'id_pembiayaan'               => $idPembiayaan,
         );
 

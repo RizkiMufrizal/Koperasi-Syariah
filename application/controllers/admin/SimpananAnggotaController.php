@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-15 13:50:06
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 09:38:55
+ * @Last Modified time: 2016-08-17 22:00:30
  */
 
 class SimpananAnggotaController extends CI_Controller
@@ -69,23 +69,38 @@ class SimpananAnggotaController extends CI_Controller
         $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
         $satukan = implode('-', $urutan);
 
-        $simpanan_pokok      = $this->input->post('simpanan_pokok');
-        $simpanan_sukarela   = $this->input->post('simpanan_sukarela');
-        $simpanan_hari_raya  = $this->input->post('simpanan_hari_raya');
-        $simpanan_wajib      = $this->input->post('simpanan_wajib');
-        $simpanan_pendidikan = $this->input->post('simpanan_pendidikan');
-        $pengambilan         = 0;
+        $simpanan_pokok            = $this->input->post('simpanan_pokok');
+        $replaceRpSimpananPokok    = str_replace("Rp ", "", explode(".", $simpanan_pokok)[0]);
+        $replaceTitikSimpananPokok = str_replace(",", "", $replaceRpSimpananPokok);
 
-        $saldo = $simpanan_pokok + $simpanan_sukarela + $simpanan_hari_raya + $simpanan_wajib + $simpanan_pendidikan + $simpananAnggota[0]->saldo;
+        $simpanan_sukarela            = $this->input->post('simpanan_sukarela');
+        $replaceRpSimpananSukarela    = str_replace("Rp ", "", explode(".", $simpanan_sukarela)[0]);
+        $replaceTitikSimpananSukarela = str_replace(",", "", $replaceRpSimpananSukarela);
+
+        $simpanan_hari_raya           = $this->input->post('simpanan_hari_raya');
+        $replaceRpSimpananHariRaya    = str_replace("Rp ", "", explode(".", $simpanan_hari_raya)[0]);
+        $replaceTitikSimpananHariRaya = str_replace(",", "", $replaceRpSimpananHariRaya);
+
+        $simpanan_wajib            = $this->input->post('simpanan_wajib');
+        $replaceRpSimpananWajib    = str_replace("Rp ", "", explode(".", $simpanan_wajib)[0]);
+        $replaceTitikSimpananWajib = str_replace(",", "", $replaceRpSimpananWajib);
+
+        $simpanan_pendidikan            = $this->input->post('simpanan_pendidikan');
+        $replaceRpSimpananPendidikan    = str_replace("Rp ", "", explode(".", $simpanan_pendidikan)[0]);
+        $replaceTitikSimpananPendidikan = str_replace(",", "", $replaceRpSimpananPendidikan);
+
+        $pengambilan = 0;
+
+        $saldo = $replaceTitikSimpananPokok + $replaceTitikSimpananSukarela + $replaceTitikSimpananHariRaya + $replaceTitikSimpananWajib + $replaceTitikSimpananPendidikan + $simpananAnggota[0]->saldo;
 
         $simpananAnggota = array(
             'id_simpanan_anggota' => $this->uuid->v4(),
             'tanggal_transaksi'   => $satukan,
-            'simpanan_pokok'      => $simpanan_pokok,
-            'simpanan_sukarela'   => $simpanan_sukarela,
-            'simpanan_hari_raya'  => $simpanan_hari_raya,
-            'simpanan_wajib'      => $simpanan_wajib,
-            'simpanan_pendidikan' => $simpanan_pendidikan,
+            'simpanan_pokok'      => $replaceTitikSimpananPokok,
+            'simpanan_sukarela'   => $replaceTitikSimpananSukarela,
+            'simpanan_hari_raya'  => $replaceTitikSimpananHariRaya,
+            'simpanan_wajib'      => $replaceTitikSimpananWajib,
+            'simpanan_pendidikan' => $replaceTitikSimpananPendidikan,
             'pengambilan'         => $pengambilan,
             'saldo'               => $saldo,
             'id_anggota'          => $idAnggota,
@@ -117,14 +132,16 @@ class SimpananAnggotaController extends CI_Controller
 
         $simpananAnggota = $this->SimpananAnggota->ambilSimpananAnggotaTerbaru($idAnggota);
 
-        $tanggal_transaksi = $this->input->post('tanggal_transaksi');
-        $pengambilan       = $this->input->post('pengambilan');
+        $tanggal_transaksi       = $this->input->post('tanggal_transaksi');
+        $pengambilan             = $this->input->post('pengambilan');
+        $replaceRpPengambilan    = str_replace("Rp ", "", explode(".", $pengambilan)[0]);
+        $replaceTitikPengambilan = str_replace(",", "", $replaceRpPengambilan);
 
         $pisah   = explode('/', $tanggal_transaksi);
         $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
         $satukan = implode('-', $urutan);
 
-        $saldo = $simpananAnggota[0]->saldo - $pengambilan;
+        $saldo = $simpananAnggota[0]->saldo - $replaceTitikPengambilan;
 
         $simpananAnggota = array(
             'id_simpanan_anggota' => $this->uuid->v4(),
@@ -134,7 +151,7 @@ class SimpananAnggotaController extends CI_Controller
             'simpanan_hari_raya'  => 0,
             'simpanan_wajib'      => 0,
             'simpanan_pendidikan' => 0,
-            'pengambilan'         => $pengambilan,
+            'pengambilan'         => $replaceTitikPengambilan,
             'saldo'               => $saldo,
             'id_anggota'          => $idAnggota,
         );
