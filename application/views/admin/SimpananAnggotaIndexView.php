@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 14:20:02
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:32:34
+ * @Last Modified time: 2016-08-17 08:47:12
  */
 -->
 
@@ -11,11 +11,11 @@
 <html>
     <head>
         <title>Halaman Admin</title>
-        <?php $this->load->view('layout/CssLayout')?>
+        <?php $this->load->view('layout/CssLayout') ?>
     </head>
     <body>
 
-        <?php $this->load->view('layout/HeaderLayout')?>
+        <?php $this->load->view('layout/HeaderLayout') ?>
 
         <div id="page-wrapper">
             <div class="row">
@@ -56,7 +56,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($simpananAnggota as $s) {?>
+                            <?php
+                            $total_simpanan_pokok      = 0;
+                            $total_simpanan_sukarela   = 0;
+                            $total_simpanan_hari_raya  = 0;
+                            $total_simpanan_wajib      = 0;
+                            $total_simpanan_pendidikan = 0;
+                            $total_pengambilan         = 0;
+                            ?>
+                            <?php foreach ($simpananAnggota as $s) {
+                                ?>
                                 <tr>
                                     <td><?php echo $s->tanggal_transaksi; ?></td>
                                     <td class="text-right"><?php echo number_format($s->simpanan_pokok, 0, ',', '.'); ?></td>
@@ -67,14 +76,34 @@
                                     <td class="text-right"><?php echo number_format($s->pengambilan, 0, ',', '.'); ?></td>
                                     <td class="text-right"><?php echo number_format($s->saldo, 0, ',', '.'); ?></td>
                                 </tr>
-                            <?php }?>
+                                <?php
+                                $total_simpanan_pokok      = $total_simpanan_pokok + $s->simpanan_pokok;
+                                $total_simpanan_sukarela   = $total_simpanan_sukarela + $s->simpanan_sukarela;
+                                $total_simpanan_hari_raya  = $total_simpanan_hari_raya + $s->simpanan_hari_raya;
+                                $total_simpanan_wajib      = $total_simpanan_wajib + $s->simpanan_wajib;
+                                $total_simpanan_pendidikan = $total_simpanan_pendidikan + $s->simpanan_pendidikan;
+                                $total_pengambilan         = $total_pengambilan + $s->pengambilan;
+                                ?>
+                            <?php } ?>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td class="text-right"><?php echo number_format($total_simpanan_pokok, 0, ',', '.'); ?></td>
+                                <td class="text-right"><?php echo number_format($total_simpanan_sukarela, 0, ',', '.'); ?></td>
+                                <td class="text-right"><?php echo number_format($total_simpanan_hari_raya, 0, ',', '.'); ?></td>
+                                <td class="text-right"><?php echo number_format($total_simpanan_wajib, 0, ',', '.'); ?></td>
+                                <td class="text-right"><?php echo number_format($total_simpanan_pendidikan, 0, ',', '.'); ?></td>
+                                <td class="text-right"><?php echo number_format($total_pengambilan, 0, ',', '.'); ?></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
         </div>
 
-        <?php $this->load->view('layout/JsLayout')?>
+        <?php $this->load->view('layout/JsLayout') ?>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#simpananAnggota').DataTable();
