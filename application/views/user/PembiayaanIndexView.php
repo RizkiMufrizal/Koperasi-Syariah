@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 22:59:43
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:07:17
+ * @Last Modified time: 2016-08-17 23:16:29
  */
 -->
 <!DOCTYPE html>
@@ -49,7 +49,7 @@
                                     <td class="text-right"><?php echo number_format($s->pembiayaan, 0, ',', '.'); ?></td>
                                     <td class="text-right"><?php echo number_format($s->biaya_administrasi, 0, ',', '.'); ?></td>
                                     <td><?php echo $s->jenis_pembiayaan; ?></td>
-                                    <td class="text-right"><?php echo $s->margin; ?></td>
+                                    <td class="text-right"><?php echo $s->margin; ?> %</td>
                                     <td class="text-right"><?php echo number_format($s->total_pembiayaan, 0, ',', '.'); ?></td>
                                     <td><?php if ($s->status == 0) {echo "BELUM LUNAS";} else {echo "SUDAH LUNAS";}?></td>
                                     <td class="text-center">
