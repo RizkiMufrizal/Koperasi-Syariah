@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:10:55
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 06:52:22
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 13:09:08
  */
 
 class AngsuranPembiayaanController extends CI_Controller
@@ -14,13 +14,14 @@ class AngsuranPembiayaanController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('AngsuranPembiayaan'); //load model AngsuranPembiayaan yang berada di folder model
+        $this->load->model('Pembiayaan');
     }
 
     //Menampilkan Data Angsuran Pembiayaan
-    public function index()
+    public function index($id_pembiayaan)
     {
-        $data['record'] = $this->AngsuranPembiayaan->ambilAngsuranPembiayaan();
-        $this->load->view('TampilAngsuranPembiayaanView', $data);
+        $data['record'] = $this->AngsuranPembiayaan->ambilAngsuranPembiayaan($id_pembiayaan);
+        $this->load->view('admin/AngsuranPembiayaanIndexView', $data);
     }
 
     //Tampilkan Halaman Tambah Angsuran Pembiayaan
@@ -31,30 +32,59 @@ class AngsuranPembiayaanController extends CI_Controller
             'hash' => $this->security->get_csrf_hash(),
         );
 
-        $this->load->view('TambahAngsuranPembiayaanView', $csrf);
+        $this->load->view('admin/AngsuranPembiayaanTambahView', $csrf);
     }
 
     //Untuk Menyimpan Data Angsuran Pembiayaan Ke Dalam Tabel Angsuran Pembiayaan
-    public function simpanAngsuranPembiayaan()
+    public function simpanAngsuranPembiayaan($idPembiayaan)
     {
-        $id_angsuran_pembiayaan      = $this->input->post('id_angsuran_pembiayaan');
+
+        $pembiayaan = $this->Pembiayaan->ambilPembiayaanTerbaruBerdasarkanIdPembiayaan($idPembiayaan);
+        $angsuran   = $this->AngsuranPembiayaan->ambilAngsuranPembiayaanTerbaru($idPembiayaan);
+
         $tanggal_pembayaran_angsuran = $this->input->post('tanggal_pembayaran_angsuran');
-        $bagi_hasil_koperasi         = $this->input->post('bagi_hasil_koperasi');
-        $bagi_hasil_anggota          = $this->input->post('bagi_hasil_anggota');
-        $keterangan                  = $this->input->post('keterangan');
-        $id_pembiayaan               = $this->input->post('id_pembiayaan');
+        $pembayaran_angsuran         = $this->input->post('pembayaran_angsuran');
+
+        if ($angsuran == null) {
+            $sisa_angsuran = $pembiayaan[0]->total_pembiayaan - $pembayaran_angsuran;
+        } else {
+            $sisa_angsuran = $angsuran[0]->sisa_angsuran - $pembayaran_angsuran;
+        }
+
+        $pisah   = explode('/', $tanggal_pembayaran_angsuran);
+        $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
+        $satukan = implode('-', $urutan);
+
+        $bagi_hasil_koperasi = 0;
+        $bagi_hasil_anggota  = 0;
+
+        if ($pembiayaan[0]->jenis_pembiayaan == 'Mudarobah') {
+            $bagi_hasil_koperasi = 1;
+            $bagi_hasil_anggota  = 1;
+        } else if ($pembiayaan[0]->jenis_pembiayaan == 'Musyarokah') {
+            $bagi_hasil_koperasi = 1;
+            $bagi_hasil_anggota  = 1;
+        }
 
         $data = array(
-            'id_angsuran_pembiayaan'      => $id_angsuran_pembiayaan,
-            'tanggal_pembayaran_angsuran' => $tanggal_pembayaran_angsuran,
+            'id_angsuran_pembiayaan'      => $this->uuid->v4(),
+            'tanggal_pembayaran_angsuran' => $satukan,
             'bagi_hasil_koperasi'         => $bagi_hasil_koperasi,
             'bagi_hasil_anggota'          => $bagi_hasil_anggota,
-            'keterangan'                  => $keterangan,
-            'id_pembiayaan'               => $id_pembiayaan);
+            'sisa_angsuran'               => $sisa_angsuran,
+            'pembayaran_angsuran'         => $pembayaran_angsuran,
+            'id_pembiayaan'               => $idPembiayaan,
+        );
 
         $this->AngsuranPembiayaan->simpanAngsuranPembiayaan($data);
 
-        redirect('AngsuranPembiayaanController/index');
+        if ($angsuran != null) {
+            if ($sisa_angsuran == 0) {
+                $this->Pembiayaan->updatePembiayaan($idPembiayaan);
+            }
+        }
+
+        return redirect('admin/AngsuranPembiayaanController/index/' . $idPembiayaan);
     }
 
 }
