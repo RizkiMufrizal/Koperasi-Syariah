@@ -111,6 +111,6 @@ CREATE TABLE tb_biaya_asset(
 )ENGINE=INNODB;
 
 INSERT INTO tb_user(username, password, role) VALUES('admin', '$2a$06$VOi.SX2lF4UE3IvAivHHYO9eqyyiPnaLu4RDN3DNYpvZG3Jk3q.NS', 'ROLE_ADMIN');
-INSERT INTO tb_user(username, password, role) VALUES('rizki', '$2a$06$R2pJcbx6GZGb5LAhu70NEeXFY6sq3Hr3qB7X3QmV/sPFXVHZh8Rfi', 'ROLE_USER');
-INSERT INTO tb_user(username, password, role) VALUES('aviv', '$2a$06$3g.WbSq91a7ZwDOurjW.ouqZhAhiScz2i11RCucP1M6tAVhAkZrea', 'ROLE_USER');
-INSERT INTO tb_user(username, password, role) VALUES('adhib', '$2a$06$.VHVnYEwaJbD0WdLYmp0UObydHoQQM3ge46YG/dDEqp3hcP/gjepq', 'ROLE_USER');
+INSERT INTO tb_user(username, password, role) VALUES('rizki', '$2a$06$R2pJcbx6GZGb5LAhu70NEeXFY6sq3Hr3qB7X3QmV/sPFXVHZh8Rfi', 'ROLE_ADMIN');
+INSERT INTO tb_user(username, password, role) VALUES('aviv', '$2a$06$3g.WbSq91a7ZwDOurjW.ouqZhAhiScz2i11RCucP1M6tAVhAkZrea', 'ROLE_ADMIN');
+INSERT INTO tb_user(username, password, role) VALUES('adhib', '$2a$06$.VHVnYEwaJbD0WdLYmp0UObydHoQQM3ge46YG/dDEqp3hcP/gjepq', 'ROLE_ADMIN');
