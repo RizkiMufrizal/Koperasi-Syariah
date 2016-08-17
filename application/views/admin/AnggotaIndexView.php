@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:34:30
+ * @Last Modified time: 2016-08-17 09:49:24
  */
 -->
 
@@ -36,7 +36,7 @@
 
                     <p></p>
 
-                    <table id="dataAnggota" class="table table-hover table-bordered">
+                    <table id="dataPembiayaan" class="table table-hover table-bordered">
                         <thead>
                             <tr>
                                 <th class="text-center">ID Anggota</th>
@@ -66,7 +66,7 @@
                                                 Simpanan Anggota
                                             </button>
                                         </a>
-                                        <a href="">
+                                        <a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/index/<?php echo $s->id_anggota; ?>">
                                             <button type="button" class="btn btn-success">
                                                 Pembiayaan
                                             </button>
@@ -88,7 +88,7 @@
         <?php $this->load->view('layout/JsLayout')?>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#dataAnggota').DataTable();
+                $('#dataPembiayaan').DataTable();
             });
         </script>
     </body>
