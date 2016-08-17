@@ -3,7 +3,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 15:26:41
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 11:18:15
+ * @Last Modified time: 2016-08-17 11:35:25
  */
 -->
 
@@ -21,7 +21,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tambah Data User</h1>
+                    <h1 class="page-header">Tambah Data Anggota</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
