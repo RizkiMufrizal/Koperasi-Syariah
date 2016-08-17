@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 13:41:16
+ * @Last Modified time: 2016-08-16 19:34:30
  */
 -->
 
@@ -56,26 +56,26 @@
                                     <td><?php echo $s->setoran_awal; ?></td>
                                     <td><?php echo $s->status; ?></td>
                                     <td class="text-center">
-                                    	<a href="">
-                                    		<button type="button" class="btn btn-default">
-                                    			Detail
-                                    		</button>
-                                    	</a>
-                                    	<a href="">
-                                    		<button type="button" class="btn btn-default">
-                                    			Simpanan Anggota
-                                    		</button>
-                                    	</a>
-                                    	<a href="">
-                                    		<button type="button" class="btn btn-default">
-                                    			Pembiayaan
-                                    		</button>
-                                    	</a>
-                                    	<a href="">
-                                    		<button type="button" class="btn btn-default">
-                                    			Pinjaman Instan
-                                    		</button>
-                                    	</a>
+                                        <a href="">
+                                            <button type="button" class="btn btn-default">
+                                                Detail
+                                            </button>
+                                        </a>
+                                        <a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/index/<?php echo $s->id_anggota; ?>">
+                                            <button type="button" class="btn btn-primary">
+                                                Simpanan Anggota
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button type="button" class="btn btn-success">
+                                                Pembiayaan
+                                            </button>
+                                        </a>
+                                        <a href="">
+                                            <button type="button" class="btn btn-warning">
+                                                Pinjaman Instan
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php }?>

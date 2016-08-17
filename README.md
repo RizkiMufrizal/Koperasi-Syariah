@@ -7,17 +7,19 @@
 * registrasi anggota
 * **login dan logout**
 * edit data anggota
-* lihat simpanan, pembiayaan dan pinjaman instan
+* **lihat simpanan anggota**
+* lihat pembiayaan
+* lihat pinjaman instan
 
 ### Admin / Ketua
 
 * **login dan logout**
-* edit, lihat, export pdf dan hapus data anggota
-* lihat, cari, export pdf dan save simpanan anggota
-* lihat, export pdf dan save pembiayaan
-* lihat, export pdf dan save angsuran pembiayaan
-* lihat, tambah, export pdf dan update (pengembalian) pinjam instan
+* edit, lihat dan hapus data anggota
+* **lihat, cari dan save simpanan anggota**
+* lihat dan save pembiayaan
+* lihat dan save angsuran pembiayaan
+* lihat, tambah dan update (pengembalian) pinjam instan
 * **crud user**
-* lihat, save dan export pdf biaya operasional
-* lihat, save dan export pdf biaya asset
+* lihat, dan save operasional
+* lihat, dan save biaya asset
 * lihat dan export pdf laporan berdasarkan tanggal dan bulan
