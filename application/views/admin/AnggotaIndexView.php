@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 13:58:54
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 22:45:56
  */
 -->
 
@@ -53,7 +53,7 @@
                                     <td><?php echo $s->id_anggota; ?></td>
                                     <td><?php echo $s->nama; ?></td>
                                     <td><?php echo $s->rembug; ?></td>
-                                    <td><?php echo $s->setoran_awal; ?></td>
+                                    <td class="text-right"><?php echo number_format($s->setoran_awal, 0, ',', '.'); ?></td>
                                     <td><?php if ($s->status == 1) {echo "AKTIF";} else {echo "TIDAK AKTIF";}?></td>
                                     <td class="text-center">
                                         <?php if ($s->status == 1) {?>
