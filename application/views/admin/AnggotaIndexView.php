@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 09:49:24
+ * @Last Modified time: 2016-08-17 11:31:26
  */
 -->
 
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <a href="<?php echo base_url(); ?>index.php/UserController/tambahUser">
+                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/tambahAnggota">
                         <button type="button" class="btn btn-primary">
                             Tambah Anggota
                         </button>
