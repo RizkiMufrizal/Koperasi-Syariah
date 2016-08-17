@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:09:46
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:59:06
+ * @Last Modified time: 2016-08-17 23:13:23
  */
 
 class PembiayaanController extends CI_Controller
@@ -200,7 +200,7 @@ class PembiayaanController extends CI_Controller
         $user               = $this->User->ambilSatuUser($username);
         $anggota            = $this->Anggota->ambilAnggotaBerdasarkanUsername($user[0]->username);
         $data['pembiayaan'] = $this->Pembiayaan->ambilPembiayaan($anggota[0]->id_anggota);
-        return $this->load->view('user/PembiayaanIndexView', $data);
+        $this->load->view('user/PembiayaanIndexView', $data);
     }
 
 }

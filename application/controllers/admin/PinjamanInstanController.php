@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:20:21
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 06:54:30
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 23:13:34
  */
 
 class PinjamanInstanController extends CI_Controller
@@ -62,7 +62,7 @@ class PinjamanInstanController extends CI_Controller
 
         $this->PinjamanInstan->simpanPinjamanInstan($data);
 
-        redirect('PinjamanInstanController/index');
+        return redirect('PinjamanInstanController/index');
     }
 
     //Ambil 1 Data Pinjaman Instan Lalu Menampilkan Halaman Edit Pinjaman Instan
@@ -103,7 +103,7 @@ class PinjamanInstanController extends CI_Controller
 
         $this->PinjamanInstan->updatePinjamanInstan($id_peminjaman_instan, $data);
 
-        redirect('AnggotaController/index');
+        return redirect('AnggotaController/index');
     }
 
 }

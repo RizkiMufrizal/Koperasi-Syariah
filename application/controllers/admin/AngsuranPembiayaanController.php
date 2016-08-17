@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:10:55
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:10:17
+ * @Last Modified time: 2016-08-17 23:12:54
  */
 
 class AngsuranPembiayaanController extends CI_Controller
@@ -124,7 +124,7 @@ class AngsuranPembiayaanController extends CI_Controller
     public function indexUser($idPembiayaan)
     {
         $data['record'] = $this->AngsuranPembiayaan->ambilAngsuranPembiayaan($idPembiayaan);
-        return $this->load->view('user/AngsuranPembiayaanIndexView', $data);
+        $this->load->view('user/AngsuranPembiayaanIndexView', $data);
     }
 
 }

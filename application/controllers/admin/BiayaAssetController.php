@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 19:06:43
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:52:47
+ * @Last Modified time: 2016-08-17 23:13:02
  */
 
 class BiayaAssetController extends CI_Controller
@@ -67,7 +67,7 @@ class BiayaAssetController extends CI_Controller
 
         $this->BiayaAsset->simpanBiayaAsset($data);
 
-        redirect('admin/BiayaAssetController/index');
+        return redirect('admin/BiayaAssetController/index');
     }
 
 }

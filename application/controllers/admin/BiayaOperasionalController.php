@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 18:54:59
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:52:52
+ * @Last Modified time: 2016-08-17 23:13:09
  */
 
 class BiayaOperasionalController extends CI_Controller
@@ -72,7 +72,7 @@ class BiayaOperasionalController extends CI_Controller
 
         $this->BiayaOperasional->simpanBiayaOperasional($data);
 
-        redirect('admin/BiayaOperasionalController/index');
+        return redirect('admin/BiayaOperasionalController/index');
     }
 
 }

@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:52:33
+ * @Last Modified time: 2016-08-17 23:12:37
  */
 
 class AnggotaController extends CI_Controller
@@ -150,7 +150,7 @@ class AnggotaController extends CI_Controller
 
         $this->Anggota->simpanAnggota($data);
 
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
@@ -195,14 +195,14 @@ class AnggotaController extends CI_Controller
 
         $this->Anggota->updateAnggota($id_anggota, $data);
 
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     //Untuk Menghapus Data Anggota
     public function hapusAnggota($id_anggota)
     {
         $this->Anggota->hapusAnggota($id_anggota);
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     public function DetailAnggota($idAnggota)

@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-15 13:50:06
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:51:43
+ * @Last Modified time: 2016-08-17 23:13:49
  */
 
 class SimpananAnggotaController extends CI_Controller
@@ -199,6 +199,6 @@ class SimpananAnggotaController extends CI_Controller
         $anggota  = $this->Anggota->ambilAnggotaBerdasarkanUsername($user[0]->username);
 
         $data['simpananAnggota'] = $this->SimpananAnggota->ambilSimpananAnggota($anggota[0]->id_anggota);
-        return $this->load->view('user/SimpananAnggotaIndexView', $data);
+        $this->load->view('user/SimpananAnggotaIndexView', $data);
     }
 }
