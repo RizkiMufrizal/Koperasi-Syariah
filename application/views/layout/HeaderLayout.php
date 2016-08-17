@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:57:37
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-17 20:40:34
  */
 -->
 
@@ -58,6 +58,12 @@
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index"><i class="fa fa-dashboard fa-fw"></i> Data Anggota</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/index"><i class="fa fa-dashboard fa-fw"></i> Data Biaya Operasional</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaAssetController/index"><i class="fa fa-dashboard fa-fw"></i> Data Biaya Asset</a>
                 </li>
                 <?php } else {?>
                 <li>
