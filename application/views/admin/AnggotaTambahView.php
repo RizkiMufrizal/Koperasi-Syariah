@@ -3,7 +3,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 15:26:41
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 11:35:25
+ * @Last Modified time: 2016-08-17 13:54:52
  */
 -->
 
@@ -77,7 +77,7 @@
 
                          <div class="form-group">
                             <label for="setoran_awal">Setoran Awal</label>
-                            <input name="setoran_awal" type="number" class="form-control" id="password" placeholder="masukkan setoran awal anda">
+                            <input name="setoran_awal" type="number" min="1" step="any" class="form-control" id="password" placeholder="masukkan setoran awal anda">
                         </div>
                          <div class="form-group">
                             <label for="alamat">Alamat</label>
@@ -95,8 +95,8 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select type="text" name="status" class="form-control required">
-                                                <option value="Aktif">Aktif</option>
-                                                <option value="Tidak Aktif">Tidak Aktif</option>
+                                                <option value="1">Aktif</option>
+                                                <option value="0">Tidak Aktif</option>
                                             </select>
                         </div>
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
