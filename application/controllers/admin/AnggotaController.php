@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-16 15:25:20
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-17 11:25:16
  */
 
 class AnggotaController extends CI_Controller
@@ -38,11 +38,16 @@ class AnggotaController extends CI_Controller
     //Untuk Menyimpan Data Anggota Ke Dalam Tabel Anggota
     public function simpanAnggota()
     {
+
+        $pisah   = explode('/', $this->input->post('tanggal_lahir'));
+        $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
+        $satukan = implode('-', $urutan);
+
         $nama                = $this->input->post('nama');
-        $tanggal_pendaftaran = $this->input->post('tanggal_pendaftaran');
+        $tanggal_pendaftaran = date('Y-m-d');
         $telepon             = $this->input->post('telepon');
         $tempat_lahir        = $this->input->post('tempat_lahir');
-        $tanggal_lahir       = $this->input->post('tanggal_lahir');
+        $tanggal_lahir       = $satukan;
         $jenis_kelamin       = $this->input->post('jenis_kelamin');
         $rembug              = $this->input->post('rembug');
         $setoran_awal        = $this->input->post('setoran_awal');
@@ -93,15 +98,24 @@ class AnggotaController extends CI_Controller
             $noUrutTest     = $hasilSubString + 1;
             $id             = $noUrutTest;
             if ($noUrutTest >= 2 && $noUrutTest <= 9) {
-                $kode = $kode_rembug . '000' . $noUrutTest;
+                $kode = $kode_rembug . '-000' . $noUrutTest;
             } else if ($noUrutTest >= 10 && $noUrutTest <= 99) {
-                $kode = $kode_rembug . '00' . $noUrutTest;
+                $kode = $kode_rembug . '-00' . $noUrutTest;
             } else if ($noUrutTest >= 100 && $noUrutTest <= 999) {
-                $kode = $kode_rembug . '0' . $noUrutTest;
+                $kode = $kode_rembug . '-0' . $noUrutTest;
             } else if ($noUrutTest >= 1000 && $noUrutTest <= 9999) {
-                $kode = $kode_rembug . $noUrutTest;
+                $kode = $kode_rembug . '-' . $noUrutTest;
             }
         }
+
+        $hash = $this->bcrypt->hash_password($this->input->post('password'));
+        $user = array(
+            'username' => $this->input->post('username'),
+            'password' => $hash,
+            'role'     => 'ROLE_USER',
+        );
+
+        $this->User->simpanUser($user);
 
         $data = array(
             'id_anggota'          => $kode,
@@ -120,16 +134,7 @@ class AnggotaController extends CI_Controller
 
         $this->Anggota->simpanAnggota($data);
 
-        $hash = $this->bcrypt->hash_password($this->input->post('password'));
-        $user = array(
-            'username' => $this->input->post('username'),
-            'password' => $hash,
-            'role'     => 'ROLE_USER',
-        );
-
-        $this->User->simpanUser($user);
-
-        redirect('AnggotaController/index');
+        redirect('admin/AnggotaController/index');
     }
 
     //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
@@ -174,14 +179,14 @@ class AnggotaController extends CI_Controller
 
         $this->Anggota->updateAnggota($id_anggota, $data);
 
-        redirect('AnggotaController/index');
+        redirect('admin/AnggotaController/index');
     }
 
     //Untuk Menghapus Data Anggota
     public function hapusAnggota($id_anggota)
     {
         $this->Anggota->hapusAnggota($id_anggota);
-        redirect('AnggotaController/index');
+        redirect('admin/AnggotaController/index');
     }
 
 }
