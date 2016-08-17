@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:13:27
+ * @Last Modified time: 2016-08-17 22:52:33
  */
 
 class AnggotaController extends CI_Controller
@@ -13,6 +13,19 @@ class AnggotaController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
+        if ($session == false) {
+            $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
+            return redirect('/');
+        } else {
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            }
+        }
+
         $this->load->model('Anggota'); //load model Anggota yang berada di folder model
         $this->load->model('User'); //load model User yang berada di folder model
     }
