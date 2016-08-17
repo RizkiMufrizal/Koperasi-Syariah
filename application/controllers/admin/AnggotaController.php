@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 11:25:16
+ * @Last Modified time: 2016-08-17 12:28:28
  */
 
 class AnggotaController extends CI_Controller
@@ -187,6 +187,12 @@ class AnggotaController extends CI_Controller
     {
         $this->Anggota->hapusAnggota($id_anggota);
         redirect('admin/AnggotaController/index');
+    }
+
+    public function DetailAnggota($idAnggota)
+    {
+        $data['record'] = $this->Anggota->ambilSatuAnggota($idAnggota);
+        $this->load->view('admin/AnggotaDetailView', $data);
     }
 
 }
