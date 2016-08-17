@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 12:36:30
+ * @Last Modified time: 2016-08-17 13:58:54
  */
 -->
 
@@ -54,9 +54,10 @@
                                     <td><?php echo $s->nama; ?></td>
                                     <td><?php echo $s->rembug; ?></td>
                                     <td><?php echo $s->setoran_awal; ?></td>
-                                    <td><?php echo $s->status; ?></td>
+                                    <td><?php if ($s->status == 1) {echo "AKTIF";} else {echo "TIDAK AKTIF";}?></td>
                                     <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/DetailAnggota/<?php echo $s->id_anggota; ?>">
+                                        <?php if ($s->status == 1) {?>
+                                            <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/DetailAnggota/<?php echo $s->id_anggota; ?>">
                                             <button type="button" class="btn btn-default">
                                                 Detail
                                             </button>
@@ -76,6 +77,21 @@
                                                 Pinjaman Instan
                                             </button>
                                         </a>
+                                        <?php } else {?>
+                                            <button type="button" class="btn btn-default" disabled>
+                                                Detail
+                                            </button>
+                                            <button type="button" class="btn btn-primary" disabled>
+                                                Simpanan Anggota
+                                            </button>
+                                            <button type="button" class="btn btn-success" disabled>
+                                                Pembiayaan
+                                            </button>
+                                            <button type="button" class="btn btn-warning" disabled>
+                                                Pinjaman Instan
+                                            </button>
+                                        <?php }?>
+
                                     </td>
                                 </tr>
                             <?php }?>
