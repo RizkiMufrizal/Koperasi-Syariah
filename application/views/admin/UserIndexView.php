@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 01:41:30
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 19:16:34
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 21:56:54
  */
 -->
 
@@ -20,9 +20,10 @@
         <div id="page-wrapper">
             <div class="row">
             <p></p>
-            <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li>Data User</li>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li>Data User</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data User</h1>
                 </div>
