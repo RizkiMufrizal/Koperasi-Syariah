@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 19:25:19
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:26:54
+ * @Last Modified time: 2016-08-17 22:03:50
  */
 -->
 
@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <label for="pengambilan">Pengambilan</label>
-                            <input name="pengambilan" type="text" class="form-control" id="pengambilan" placeholder="masukkan Pengambilan anda">
+                            <input name="pengambilan" type="text" class="form-control angka" id="pengambilan" placeholder="masukkan Pengambilan anda">
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />

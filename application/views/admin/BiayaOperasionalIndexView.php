@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 19:55:55
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-17 20:20:19
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 22:27:42
  */
 -->
 
@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/tambahBiayaOperasional/<?php echo $this->uri->segment(4); ?>">
+                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/tambahBiayaOperasional">
                         <button type="button" class="btn btn-primary">
                             Tambah Biaya Operasional
                         </button>
@@ -47,8 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1;foreach ($record as $s) {
-    ?>
+                            <?php $no = 1;foreach ($record as $s) {?>
                                 <tr>
                                     <td><?php echo $no; ?></td>
                                     <td><?php echo $s->tanggal_transaksi; ?></td>
@@ -66,7 +65,7 @@
         <?php $this->load->view('layout/JsLayout')?>
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#simpananAnggota').DataTable();
+                $('#biayaOperasonal').DataTable();
             });
         </script>
     </body>

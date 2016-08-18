@@ -1,16 +1,15 @@
 <!--
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
- * @Date:   2016-08-17 09:42:41
+ * @Date:   2016-08-17 22:59:43
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:16:37
+ * @Last Modified time: 2016-08-17 23:16:29
  */
 -->
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Halaman Admin</title>
+        <title>Halaman User</title>
         <?php $this->load->view('layout/CssLayout')?>
     </head>
     <body>
@@ -28,25 +27,6 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/tambahPembiayaan/<?php echo $this->uri->segment(4); ?>">
-                        <button type="button" class="btn btn-primary">
-                            Tambah Pembiayaan
-                        </button>
-                    </a>
-
-                    <h4>Total Saldo Anda <?php echo 'Rp ' . number_format($dataSimpananAnggota, 0, ',', '.'); ?></h4>
-
-                    <p></p>
-
-                    <?php if ($this->session->flashdata('pesan') != null) {?>
-                        <div id="error" style="text-align: center" class="alert alert-danger">
-                            <a href="" class="close" data-dismiss="alert"> &times; </a>
-                            <strong>Error</strong><p></p> <?php echo $this->session->flashdata('pesan'); ?>
-                        </div>
-                    <?php }?>
-
-                    <p></p>
-
                     <table id="dataUser" class="table table-hover table-bordered">
                         <thead>
                             <tr>
@@ -62,7 +42,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($record as $s) {?>
+                            <?php foreach ($pembiayaan as $s) {?>
                                 <tr>
                                     <td><?php echo $s->tanggal_peminjaman; ?></td>
                                     <td><?php echo $s->tanggal_jatuh_tempo; ?></td>
@@ -73,9 +53,9 @@
                                     <td class="text-right"><?php echo number_format($s->total_pembiayaan, 0, ',', '.'); ?></td>
                                     <td><?php if ($s->status == 0) {echo "BELUM LUNAS";} else {echo "SUDAH LUNAS";}?></td>
                                     <td class="text-center">
-                                        <a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/index/<?php echo $s->id_pembiayaan; ?>">
-                                            <button class="btn btn-success">
-                                                Bayar Angsuran
+                                        <a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/indexUser/<?php echo $s->id_pembiayaan; ?>">
+                                            <button class="btn btn-primary">
+                                                Lihat Bayar Angsuran
                                             </button>
                                         </a>
                                     </td>

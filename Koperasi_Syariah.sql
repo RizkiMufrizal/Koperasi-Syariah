@@ -2,7 +2,7 @@
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
 * @Last Modified by:   RizkiMufrizal
-* @Last Modified time: 2016-08-17 12:13:33
+* @Last Modified time: 2016-08-17 22:43:11
 */
 
 CREATE DATABASE koperasi_syariah;
@@ -27,8 +27,10 @@ CREATE TABLE tb_anggota(
   setoran_awal DECIMAL NOT NULL,
   alamat TEXT NOT NULL,
   status TINYINT NOT NULL,
-  username VARCHAR(50) NOT NULL,
+  username VARCHAR(50),
   FOREIGN KEY(username) REFERENCES tb_user(username)
+    ON DELETE SET NULL
+    ON UPDATE SET NULL
 )ENGINE=INNODB;
 
 CREATE TABLE tb_simpanan_anggota(
@@ -95,7 +97,7 @@ CREATE TABLE tb_peminjaman_instan(
 CREATE TABLE tb_biaya_operasional(
   id_biaya_operasional VARCHAR(50) NOT NULL PRIMARY KEY,
   tanggal_transaksi DATE NOT NULL,
-  jenis_beban VARCHAR(50) NOT NULL,
+  jenis_beban char(29) NOT NULL,
   keterangan TEXT NOT NULL,
   biaya DECIMAL NOT NULL
 )ENGINE=INNODB;
@@ -109,6 +111,6 @@ CREATE TABLE tb_biaya_asset(
 )ENGINE=INNODB;
 
 INSERT INTO tb_user(username, password, role) VALUES('admin', '$2a$06$VOi.SX2lF4UE3IvAivHHYO9eqyyiPnaLu4RDN3DNYpvZG3Jk3q.NS', 'ROLE_ADMIN');
-INSERT INTO tb_user(username, password, role) VALUES('rizki', '$2a$06$R2pJcbx6GZGb5LAhu70NEeXFY6sq3Hr3qB7X3QmV/sPFXVHZh8Rfi', 'ROLE_USER');
-INSERT INTO tb_user(username, password, role) VALUES('aviv', '$2a$06$3g.WbSq91a7ZwDOurjW.ouqZhAhiScz2i11RCucP1M6tAVhAkZrea', 'ROLE_USER');
-INSERT INTO tb_user(username, password, role) VALUES('adhib', '$2a$06$.VHVnYEwaJbD0WdLYmp0UObydHoQQM3ge46YG/dDEqp3hcP/gjepq', 'ROLE_USER');
+INSERT INTO tb_user(username, password, role) VALUES('rizki', '$2a$06$R2pJcbx6GZGb5LAhu70NEeXFY6sq3Hr3qB7X3QmV/sPFXVHZh8Rfi', 'ROLE_ADMIN');
+INSERT INTO tb_user(username, password, role) VALUES('aviv', '$2a$06$3g.WbSq91a7ZwDOurjW.ouqZhAhiScz2i11RCucP1M6tAVhAkZrea', 'ROLE_ADMIN');
+INSERT INTO tb_user(username, password, role) VALUES('adhib', '$2a$06$.VHVnYEwaJbD0WdLYmp0UObydHoQQM3ge46YG/dDEqp3hcP/gjepq', 'ROLE_ADMIN');

@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 18:54:59
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-17 20:31:10
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 23:13:09
  */
 
 class BiayaOperasionalController extends CI_Controller
@@ -13,6 +13,19 @@ class BiayaOperasionalController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
+        if ($session == false) {
+            $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
+            return redirect('/');
+        } else {
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            }
+        }
+
         $this->load->model('BiayaOperasional'); //load model BiayaOperasional yang berada di folder model
     }
 
@@ -20,7 +33,7 @@ class BiayaOperasionalController extends CI_Controller
     public function index()
     {
         $data['record'] = $this->BiayaOperasional->ambilBiayaOperasional();
-        $this->load->view('admin/BiayaOperasinalIndexView', $data);
+        $this->load->view('admin/BiayaOperasionalIndexView', $data);
     }
 
     //Menampilkan Form Untuk Menambah Data Biaya Operasional
@@ -43,9 +56,11 @@ class BiayaOperasionalController extends CI_Controller
         $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
         $satukan = implode('-', $urutan);
 
-        $jenis_beban = $this->input->post('jenis_beban');
-        $keterangan  = $this->input->post('keterangan');
-        $biaya       = $this->input->post('biaya');
+        $jenis_beban       = $this->input->post('jenis_beban');
+        $keterangan        = $this->input->post('keterangan');
+        $biaya             = $this->input->post('biaya');
+        $replaceRpBiaya    = str_replace("Rp ", "", explode(".", $biaya)[0]);
+        $replaceTitikBiaya = str_replace(",", "", $replaceRpBiaya);
 
         $data = array(
             'id_biaya_operasional' => $this->uuid->v4(),
@@ -57,7 +72,7 @@ class BiayaOperasionalController extends CI_Controller
 
         $this->BiayaOperasional->simpanBiayaOperasional($data);
 
-        redirect('admin/BiayaOperasionalController/index');
+        return redirect('admin/BiayaOperasionalController/index');
     }
 
 }

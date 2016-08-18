@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-17 12:28:28
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 23:12:37
  */
 
 class AnggotaController extends CI_Controller
@@ -13,6 +13,19 @@ class AnggotaController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
+        if ($session == false) {
+            $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
+            return redirect('/');
+        } else {
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            }
+        }
+
         $this->load->model('Anggota'); //load model Anggota yang berada di folder model
         $this->load->model('User'); //load model User yang berada di folder model
     }
@@ -43,17 +56,20 @@ class AnggotaController extends CI_Controller
         $urutan  = array($pisah[2], $pisah[1], $pisah[0]);
         $satukan = implode('-', $urutan);
 
-        $nama                = $this->input->post('nama');
-        $tanggal_pendaftaran = date('Y-m-d');
-        $telepon             = $this->input->post('telepon');
-        $tempat_lahir        = $this->input->post('tempat_lahir');
-        $tanggal_lahir       = $satukan;
-        $jenis_kelamin       = $this->input->post('jenis_kelamin');
-        $rembug              = $this->input->post('rembug');
-        $setoran_awal        = $this->input->post('setoran_awal');
-        $alamat              = $this->input->post('alamat');
-        $status              = $this->input->post('status');
-        $username            = $this->input->post('username');
+        $nama                    = $this->input->post('nama');
+        $tanggal_pendaftaran     = date('Y-m-d');
+        $telepon                 = $this->input->post('telepon');
+        $tempat_lahir            = $this->input->post('tempat_lahir');
+        $tanggal_lahir           = $satukan;
+        $jenis_kelamin           = $this->input->post('jenis_kelamin');
+        $rembug                  = $this->input->post('rembug');
+        $setoran_awal            = $this->input->post('setoran_awal');
+        $replaceRpSetoranAwal    = str_replace("Rp ", "", explode(".", $setoran_awal)[0]);
+        $replaceTitikSetoranAwal = str_replace(",", "", $replaceRpSetoranAwal);
+
+        $alamat   = $this->input->post('alamat');
+        $status   = $this->input->post('status');
+        $username = $this->input->post('username');
 
         $kode_rembug = "";
         $id          = 0;
@@ -127,14 +143,14 @@ class AnggotaController extends CI_Controller
             'tanggal_lahir'       => $tanggal_lahir,
             'jenis_kelamin'       => $jenis_kelamin,
             'rembug'              => $rembug,
-            'setoran_awal'        => $setoran_awal,
+            'setoran_awal'        => $replaceTitikSetoranAwal,
             'alamat'              => $alamat,
             'status'              => $status,
             'username'            => $username);
 
         $this->Anggota->simpanAnggota($data);
 
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     //Ambil 1 Data Anggota Lalu Menampilkan Halaman Edit Anggota
@@ -179,14 +195,14 @@ class AnggotaController extends CI_Controller
 
         $this->Anggota->updateAnggota($id_anggota, $data);
 
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     //Untuk Menghapus Data Anggota
     public function hapusAnggota($id_anggota)
     {
         $this->Anggota->hapusAnggota($id_anggota);
-        redirect('admin/AnggotaController/index');
+        return redirect('admin/AnggotaController/index');
     }
 
     public function DetailAnggota($idAnggota)

@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 20:07:26
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-17 20:50:10
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-17 22:27:58
  */
 -->
 
@@ -27,7 +27,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
-                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/simpanBiayaOperasional/<?php echo $this->uri->segment(4); ?>">
+                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/simpanBiayaOperasional">
 
                         <div class="form-group">
                             <label for="datetimepicker">Tanggal Transaksi</label>
@@ -36,7 +36,15 @@
 
                         <div class="form-group">
                             <label for="jenis_beban">Jenis Beban</label>
-                            <input name="jenis_beban" type="text" class="form-control" id="jenis_beban" placeholder="masukkan Jenis Beban anda">
+                            <select type="text" name="jenis_beban" class="form-control">
+                                <option value="Gaji Pengelola">Gaji Pengelola</option>
+                                <option value="Honor Pengurus Dan Pengawas">Honor Pengurus Dan Pengawas</option>
+                                <option value="ATK">ATK</option>
+                                <option value="Listrik Dan Telepon">Listrik Dan Telepon</option>
+                                <option value="Transportasi">Transportasi</option>
+                                <option value="Air Mineral Dan Rumah Tangga">Air Mineral Dan Rumah Tangga</option>
+                                <option value="Lain - lain">Lain - lain</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -46,12 +54,12 @@
 
                         <div class="form-group">
                             <label for="biaya">Biaya</label>
-                            <input name="biaya" type="text" class="form-control" id="biaya" placeholder="masukkan Biaya anda">
+                            <input name="biaya" type="text" class="form-control angka" id="biaya" placeholder="masukkan Biaya anda">
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/index/<?php echo $this->uri->segment(4); ?>">
+                        <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/index">
                             <button type="button" class="btn btn-warning">Batal</button>
                         </a>
                     </form>

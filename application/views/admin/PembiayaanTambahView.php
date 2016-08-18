@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 09:49:57
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 10:54:35
+ * @Last Modified time: 2016-08-17 22:05:47
  */
 -->
 
@@ -41,17 +41,17 @@
 
                         <div class="form-group">
                             <label for="pembiayaan">Pembiayaan</label>
-                            <input type="number" id="pembiayaan" name="pembiayaan" class="form-control" placeholder="masukkan Pembiayaan anda">
+                            <input type="text" id="pembiayaan" name="pembiayaan" class="form-control angka" placeholder="masukkan Pembiayaan anda">
                         </div>
 
                         <div class="form-group">
                             <label for="jenis_pembiayaan">Jenis Pembiayaan</label>
                             <select name="jenis_pembiayaan" id="jenis_pembiayaan" class="form-control">
-  								<option value="Mudarobah">Mudarobah</option>
-  								<option value="Musyarokah">Musyarokah</option>
-  								<option value="Murobaah">Murobaah</option>
-  								<option value="Ijarah">Ijarah</option>
-							</select>
+                                <option value="Mudarobah">Mudarobah</option>
+                                <option value="Musyarokah">Musyarokah</option>
+                                <option value="Murobaah">Murobaah</option>
+                                <option value="Ijarah">Ijarah</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
