@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:57:30
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 13:35:32
  */
 -->
 
@@ -74,6 +74,9 @@
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/indexUser"><i class="fa fa-dashboard fa-fw"></i> Data Pembiayaan</a>
+                </li>
+                                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/Profile"><i class="fa fa-dashboard fa-fw"></i> Profile</a>
                 </li>
                 <?php }?>
             </ul>
