@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 14:55:52
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 14:56:38
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 21:59:09
  */
 -->
 <!DOCTYPE html>
@@ -18,6 +18,11 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/user/IndexController/">Home</a></li>
+                <li>Data Peminjaman Instan</li>
+            </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Peminjaman Instan</h1>
                 </div>
