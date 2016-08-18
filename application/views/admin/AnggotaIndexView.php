@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:45:56
+ * @Last Modified time: 2016-08-18 13:46:19
  */
 -->
 
@@ -72,7 +72,7 @@
                                                 Pembiayaan
                                             </button>
                                         </a>
-                                        <a href="">
+                                        <a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/index/<?php echo $s->id_anggota; ?>">
                                             <button type="button" class="btn btn-warning">
                                                 Pinjaman Instan
                                             </button>
