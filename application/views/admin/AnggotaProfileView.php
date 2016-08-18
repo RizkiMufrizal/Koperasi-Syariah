@@ -1,11 +1,10 @@
-<!--
-/**
+<!--/**
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
- * @Date:   2016-08-17 11:35:57
+ * @Date:   2016-08-18 13:09:13
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:08:16
- */
--->
+ * @Last Modified time: 2016-08-18 14:06:25
+ */-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,11 +36,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input name="nama" type="text" class="form-control" value="<?php echo $r->nama; ?>">
+                                <input name="nama" type="text" class="form-control" value="<?php echo $r->nama; ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="tempat_lahir">Tempat Lahir</label>
-                                <input name="tempat_lahir" type="text" class="form-control" value="<?php echo $r->tempat_lahir; ?>" >
+                                <input name="tempat_lahir" type="text" class="form-control" value="<?php echo $r->tempat_lahir; ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="tempat_lahir">Tanggal Lahir</label>
@@ -56,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="telepon">Telepon</label>
-                                <input name="telepon" type="number" class="form-control" value="<?php echo $r->telepon; ?>" >
+                                <input name="telepon" type="number" class="form-control" value="<?php echo $r->telepon; ?>" disabled >
                             </div>
                             <div class="form-group">
                                 <label for="rembug">Rembug</label>
@@ -79,15 +78,9 @@
                                 </select>
                                 <input type="hidden" name="rembug" value="<?php echo $r->rembug; ?>" class="form-control">
                             </div>
-
-                            <div class="form-group">
-                                <label for="setoran_awal">Setoran Awal</label>
-                                <input name="setoran_awal1" type="text" class="form-control angka" value="<?php echo $r->setoran_awal; ?>" disabled>
-                                <input type="hidden" name="setoran_awal" value="<?php echo $r->setoran_awal; ?>" class="form-control">
-                            </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input name="alamat" class="form-control" value="<?php echo $r->alamat; ?>" >
+                                <input name="alamat" class="form-control" value="<?php echo $r->alamat; ?>" disabled>
                             </div>
 
                             <div class="form-group">
@@ -105,10 +98,9 @@
                             </div>
                             <p></p>
                             <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
-                            <button type="submit" class="btn btn-primary">Update</button>
                         <?php }?>
 
-                        <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">
+                        <a href="<?php echo base_url(); ?>index.php/user/IndexController/index">
                             <button type="button" class="btn btn-warning">Close</button>
                         </a>
                     </form>
