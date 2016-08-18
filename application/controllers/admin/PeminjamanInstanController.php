@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:20:21
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 14:45:38
+ * @Last Modified time: 2016-08-18 14:57:35
  */
 
 class PeminjamanInstanController extends CI_Controller
@@ -14,6 +14,8 @@ class PeminjamanInstanController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('PeminjamanInstan'); //load model Pinjaman yang berada di folder model
+        $this->load->model('User');
+        $this->load->model('Anggota');
     }
 
     //Menampilkan Data Pinjaman Instan
@@ -174,6 +176,19 @@ class PeminjamanInstanController extends CI_Controller
         $this->PeminjamanInstan->updatePeminjamanInstan($id_peminjaman_instan, $data);
 
         return redirect('admin/PeminjamanInstanController/index/' . $idAnggota);
+    }
+
+    /**
+     * batas user
+     */
+
+    public function indexUser()
+    {
+        $username       = $this->session->userdata('username');
+        $user           = $this->User->ambilSatuUser($username);
+        $anggota        = $this->Anggota->ambilAnggotaBerdasarkanUsername($user[0]->username);
+        $data['record'] = $this->PeminjamanInstan->ambilPeminjamanInstan($anggota[0]->id_anggota);
+        $this->load->view('user/PeminjamanInstanIndexView', $data);
     }
 
 }
