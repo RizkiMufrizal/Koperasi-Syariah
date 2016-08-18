@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 19:56:02
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 19:56:37
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 21:58:01
  */
 -->
 
@@ -19,6 +19,11 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/user/IndexController/">Home</a></li>
+                <li>Data Simpanan Anggota</li>
+            </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Simpanan Anggota</h1>
                 </div>
