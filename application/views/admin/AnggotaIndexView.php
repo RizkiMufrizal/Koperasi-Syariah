@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 13:11:14
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:45:56
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 14:52:03
  */
 -->
 
@@ -18,8 +18,14 @@
         <?php $this->load->view('layout/HeaderLayout')?>
 
         <div id="page-wrapper">
+
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                <li>Data Anggota</li>
                 <div class="col-lg-12">
+
                     <h1 class="page-header">Data Anggota</h1>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -27,6 +33,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+
 
                     <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/tambahAnggota">
                         <button type="button" class="btn btn-primary">
