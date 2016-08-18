@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 20:43:41
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:27:22
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 21:54:53
  */
 -->
 
@@ -19,6 +19,11 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li>Biaya Asset</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Biaya Asset</h1>
                 </div>
