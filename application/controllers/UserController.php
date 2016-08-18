@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 13:06:36
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 02:33:07
+ * @Last Modified time: 2016-08-18 15:08:27
  */
 
 class UserController extends CI_Controller
@@ -22,12 +22,18 @@ class UserController extends CI_Controller
     public function index()
     {
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $data['users'] = $this->User->ambilUser();
-            return $this->load->view('admin/UserIndexView', $data);
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            } else {
+                $data['users'] = $this->User->ambilUser();
+                return $this->load->view('admin/UserIndexView', $data);
+            }
         }
     }
 
@@ -37,16 +43,23 @@ class UserController extends CI_Controller
      */
     public function tambahUser()
     {
+
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $csrf = array(
-                'name' => $this->security->get_csrf_token_name(),
-                'hash' => $this->security->get_csrf_hash(),
-            );
-            return $this->load->view('admin/UserTambahView', $csrf);
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            } else {
+                $csrf = array(
+                    'name' => $this->security->get_csrf_token_name(),
+                    'hash' => $this->security->get_csrf_hash(),
+                );
+                return $this->load->view('admin/UserTambahView', $csrf);
+            }
         }
     }
 
@@ -57,19 +70,25 @@ class UserController extends CI_Controller
     public function simpanUser()
     {
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $hash = $this->bcrypt->hash_password($this->input->post('password'));
-            $user = array(
-                'username' => $this->input->post('username'),
-                'password' => $hash,
-                'role'     => $this->input->post('role'),
-            );
-            $this->User->simpanUser($user);
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            } else {
+                $hash = $this->bcrypt->hash_password($this->input->post('password'));
+                $user = array(
+                    'username' => $this->input->post('username'),
+                    'password' => $hash,
+                    'role'     => $this->input->post('role'),
+                );
+                $this->User->simpanUser($user);
 
-            return redirect('UserController');
+                return redirect('UserController');
+            }
         }
     }
 
@@ -81,16 +100,22 @@ class UserController extends CI_Controller
     public function editUser($username)
     {
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $data = array(
-                'user' => $this->User->ambilSatuUser($username),
-                'name' => $this->security->get_csrf_token_name(),
-                'hash' => $this->security->get_csrf_hash(),
-            );
-            $this->load->view('admin/UserEditView', $data);
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            } else {
+                $data = array(
+                    'user' => $this->User->ambilSatuUser($username),
+                    'name' => $this->security->get_csrf_token_name(),
+                    'hash' => $this->security->get_csrf_hash(),
+                );
+                $this->load->view('admin/UserEditView', $data);
+            }
         }
     }
 
@@ -101,30 +126,36 @@ class UserController extends CI_Controller
     public function updateUser()
     {
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $username = $this->input->post('username');
-            $password = $this->input->post('password');
-            $user     = $this->User->ambilSatuUser($username);
-
-            if ($this->bcrypt->check_password($password, $user[0]->username)) {
-                $user = array(
-                    'password' => $this->input->post('password'),
-                    'role'     => $this->input->post('role'),
-                );
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
             } else {
-                $hash = $this->bcrypt->hash_password($this->input->post('password'));
-                $user = array(
-                    'password' => $hash,
-                    'role'     => $this->input->post('role'),
-                );
+                $username = $this->input->post('username');
+                $password = $this->input->post('password');
+                $user     = $this->User->ambilSatuUser($username);
+
+                if ($this->bcrypt->check_password($password, $user[0]->username)) {
+                    $user = array(
+                        'password' => $this->input->post('password'),
+                        'role'     => $this->input->post('role'),
+                    );
+                } else {
+                    $hash = $this->bcrypt->hash_password($this->input->post('password'));
+                    $user = array(
+                        'password' => $hash,
+                        'role'     => $this->input->post('role'),
+                    );
+                }
+
+                $this->User->updateUser($username, $user);
+
+                return redirect('UserController');
             }
-
-            $this->User->updateUser($username, $user);
-
-            return redirect('UserController');
         }
     }
 
@@ -135,14 +166,21 @@ class UserController extends CI_Controller
      */
     public function hapusUser($username)
     {
+
         $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
         } else {
-            $this->User->deleteUser($username);
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            } else {
+                $this->User->deleteUser($username);
 
-            return redirect('UserController');
+                return redirect('UserController');
+            }
         }
     }
 

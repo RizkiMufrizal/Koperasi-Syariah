@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:58:58
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:12:47
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-18 14:59:19
  */
 
 class AnggotaController extends CI_Controller
@@ -15,7 +15,6 @@ class AnggotaController extends CI_Controller
         parent::__construct();
 
         $session = $this->session->userdata('loggedIn');
-        $role    = $this->session->userdata('role');
         if ($session == false) {
             $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
             return redirect('/');
