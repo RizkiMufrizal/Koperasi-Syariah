@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-15 13:09:46
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:13:23
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 15:18:30
  */
 
 class PembiayaanController extends CI_Controller
@@ -34,8 +34,16 @@ class PembiayaanController extends CI_Controller
             $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
             return redirect('/');
         } else {
-            $data['dataSimpananAnggota'] = $this->SimpananAnggota->ambilSimpananAnggotaTerbaru($idAnggota)[0]->saldo;
-            $data['record']              = $this->Pembiayaan->ambilPembiayaan($idAnggota);
+
+            $saldo = $this->SimpananAnggota->ambilSimpananAnggotaTerbaru($idAnggota);
+
+            if ($saldo == null) {
+                $data['dataSimpananAnggota'] = 0;
+            } else {
+                $data['dataSimpananAnggota'] = $saldo[0]->saldo;
+            }
+
+            $data['record'] = $this->Pembiayaan->ambilPembiayaan($idAnggota);
             $this->load->view('admin/PembiayaanIndexView', $data);
         }
     }
