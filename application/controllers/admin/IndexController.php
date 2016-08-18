@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 15:04:35
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 02:33:32
+ * @Last Modified time: 2016-08-18 18:30:06
  */
 
 class IndexController extends CI_Controller
@@ -23,6 +23,12 @@ class IndexController extends CI_Controller
                 return redirect('/');
             }
         }
+        $this->load->model('Anggota');
+        $this->load->model('User');
+        $this->load->model('Pembiayaan');
+        $this->load->model('PeminjamanInstan');
+        $this->load->model('AngsuranPembiayaan');
+        $this->load->model('BiayaOperasional');
     }
 
     /**
@@ -31,7 +37,43 @@ class IndexController extends CI_Controller
      */
     public function index()
     {
-        return $this->load->view('admin/IndexView');
+        $pembiayaan         = $this->Pembiayaan->ambilSemuaPembiayaan();
+        $peminjamanInstan   = $this->PeminjamanInstan->ambilSemuaPeminjamanInstan();
+        $angsuranPembiayaan = $this->AngsuranPembiayaan->ambilSemuaAngsuranPembiayaan();
+        $biayaOperasional   = $this->BiayaOperasional->ambilBiayaOperasional();
+        $jumlahPendapatan   = 0;
+        $jumlahPengeluaran  = 0;
+
+        /**
+         * untuk proses akumulasi
+         */
+        foreach ($pembiayaan as $p) {
+            $jumlahPendapatan = $jumlahPendapatan + $p->biaya_administrasi + ($p->pembiayaan * ($p->margin / 100));
+        }
+
+        /**
+         * untuk proses akumulasi
+         */
+        foreach ($peminjamanInstan as $pi) {
+            $jumlahPendapatan = $jumlahPendapatan + $pi->biaya_administrasi + $pi->bagi_hasil;
+        }
+
+        /**
+         * untuk proses akumulasi
+         */
+        foreach ($angsuranPembiayaan as $ap) {
+            $jumlahPendapatan = $jumlahPendapatan + $ap->bagi_hasil_koperasi + $pa->bagi_hasil_anggota;
+        }
+
+        foreach ($biayaOperasional as $bo) {
+            $jumlahPengeluaran = $jumlahPengeluaran + $bo->biaya;
+        }
+
+        $data['jumlahAnggota']     = $this->Anggota->ambilCountAnggota();
+        $data['jumlahUser']        = $this->User->ambilCountUser();
+        $data['jumlahPendapatan']  = $jumlahPendapatan;
+        $data['jumlahPengeluaran'] = $jumlahPengeluaran;
+        return $this->load->view('admin/IndexView', $data);
     }
 
 }

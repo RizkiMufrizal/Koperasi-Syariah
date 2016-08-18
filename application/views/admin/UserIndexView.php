@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 01:41:30
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:50:25
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-18 19:16:34
  */
 -->
 
@@ -56,12 +56,12 @@
                                     <td class="text-center">
                                         <a href="<?php echo base_url(); ?>index.php/UserController/editUser/<?php echo $s->username; ?>">
                                             <button type="button" class="btn btn-success">
-                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                Edit
                                             </button>
                                         </a>
                                         <a href="<?php echo base_url(); ?>index.php/UserController/hapusUser/<?php echo $s->username; ?>"">
                                             <button type="button" class="btn btn-danger">
-                                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                Hapus
                                             </button>
                                         </a>
                                     </td>
