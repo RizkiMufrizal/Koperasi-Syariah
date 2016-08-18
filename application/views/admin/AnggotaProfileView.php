@@ -1,8 +1,8 @@
 <!--/**
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-18 13:09:13
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:06:25
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 22:04:50
  */-->
 
 <!DOCTYPE html>
@@ -17,6 +17,11 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/user/IndexController/">Home</a></li>
+                <li>Profile</li>
+            </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Detail Anggota</h1>
                 </div>

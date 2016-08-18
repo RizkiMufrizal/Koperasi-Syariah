@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 23:06:45
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:07:46
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 22:02:25
  */
 -->
 
@@ -19,6 +19,12 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/user/IndexController/">Home</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/indexUser/">Data Pembiayaan Anggota</a></li>
+                <li>Data Angsuram Pembiayaan Anggota</li>
+            </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Angsuran Pembiayaan</h1>
                 </div>
