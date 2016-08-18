@@ -3,8 +3,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 18:54:59
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 23:13:09
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 15:51:48
  */
 
 class BiayaOperasionalController extends CI_Controller
@@ -67,7 +67,7 @@ class BiayaOperasionalController extends CI_Controller
             'tanggal_transaksi'    => $satukan,
             'jenis_beban'          => $jenis_beban,
             'keterangan'           => $keterangan,
-            'biaya'                => $biaya,
+            'biaya'                => $replaceTitikBiaya,
         );
 
         $this->BiayaOperasional->simpanBiayaOperasional($data);

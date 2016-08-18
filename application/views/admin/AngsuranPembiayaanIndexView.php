@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 11:53:52
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 13:17:45
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 15:43:00
  */
 -->
 
@@ -19,6 +19,12 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/index/<?php echo $this->uri->segment(5); ?>">Pembiayaan</a></li>
+                <li>Data Angsuran Pembiayaan</li>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Angsuran Pembiayaan</h1>
                 </div>
@@ -28,7 +34,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/tambahAngsuranPembiayaan/<?php echo $this->uri->segment(4); ?>">
+                    <a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/tambahAngsuranPembiayaan/<?php echo $this->uri->segment(4); ?>/<?php echo $this->uri->segment(5); ?>">
                         <button type="button" class="btn btn-primary">
                             Tambah Angsuran Pembiayaan
                         </button>
