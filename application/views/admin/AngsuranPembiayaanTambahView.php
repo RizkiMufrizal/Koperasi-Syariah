@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 12:18:47
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:09:30
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 13:12:12
  */
 -->
 
@@ -31,12 +31,12 @@
 
                         <div class="form-group">
                             <label for="datetimepicker">Tanggal Pembayaran Angsuran</label>
-                            <input id="datetimepicker" name="tanggal_pembayaran_angsuran" class="form-control" placeholder="masukkan Tanggal Peminjaman anda">
+                            <input id="datetimepicker" name="tanggal_pembayaran_angsuran" class="form-control" placeholder="masukkan Tanggal Peminjaman anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="pembayaran_angsuran">Pembayaran Angsuran</label>
-                            <input id="pembayaran_angsuran" type="text" name="pembayaran_angsuran" class="form-control angka" placeholder="masukkan pembayaran_angsuran anda">
+                            <input id="pembayaran_angsuran" type="text" name="pembayaran_angsuran" class="form-control angka" placeholder="masukkan pembayaran_angsuran anda" required>
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />

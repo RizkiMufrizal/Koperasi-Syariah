@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 19:25:19
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:03:50
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 13:16:45
  */
 -->
 
@@ -31,12 +31,12 @@
 
                         <div class="form-group">
                             <label for="datetimepicker">Tanggal Transaksi</label>
-                            <input id="datetimepicker" name="tanggal_transaksi" class="form-control" placeholder="masukkan Tanggal Transaksi anda">
+                            <input id="datetimepicker" name="tanggal_transaksi" class="form-control" placeholder="masukkan Tanggal Transaksi anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="pengambilan">Pengambilan</label>
-                            <input name="pengambilan" type="text" class="form-control angka" id="pengambilan" placeholder="masukkan Pengambilan anda">
+                            <input name="pengambilan" type="text" class="form-control angka" id="pengambilan" placeholder="masukkan Pengambilan anda" required>
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
