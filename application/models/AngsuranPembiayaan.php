@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:08:27
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 18:25:09
+ * @Last Modified time: 2016-08-18 22:43:06
  */
 
 class AngsuranPembiayaan extends CI_Model
@@ -37,6 +37,17 @@ class AngsuranPembiayaan extends CI_Model
     public function ambilSemuaAngsuranPembiayaan()
     {
         return $this->db->get('tb_angsuran_pembiayaan')->result();
+    }
+
+    /**
+     * ambil data angsuran pembiayaan berdasarkan dua tanggal
+     * @param  [type] $tanggalAwal  [description]
+     * @param  [type] $tanggalAkhir [description]
+     * @return [type]               [description]
+     */
+    public function ambilAngsuranPembiayaanBerdasarkanDuaTanggal($tanggalAwal, $tanggalAkhir)
+    {
+        return $this->db->query("SELECT bagi_hasil_anggota, bagi_hasil_koperasi FROM tb_angsuran_pembiayaan WHERE tanggal_pembayaran_angsuran BETWEEN " . "'" . $tanggalAwal . "' AND '" . $tanggalAkhir . "'")->result();
     }
 
 }
