@@ -2,19 +2,19 @@
 /**
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-17 11:35:57
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:14:53
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 14:08:16
  */
 -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Halaman Admin</title>
-        <?php $this->load->view('layout/CssLayout') ?>
+        <?php $this->load->view('layout/CssLayout')?>
     </head>
     <body>
 
-        <?php $this->load->view('layout/HeaderLayout') ?>
+        <?php $this->load->view('layout/HeaderLayout')?>
 
         <div id="page-wrapper">
             <div class="row">
@@ -24,19 +24,24 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            <?php foreach ($record as $r) { ?>
+            <?php foreach ($record as $r) {?>
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <form method="post" action="<?php echo base_url(); ?>index.php/admin/AnggotaController/simpanAnggota">
+                        <form method="post" action="<?php echo base_url(); ?>index.php/admin/AnggotaController/UpdateAnggota">
 
                             <div class="form-group">
+                                <label for="name">ID Anggota</label>
+                                <input name="id_anggota1" type="text" class="form-control" value="<?php echo $r->id_anggota; ?>" disabled>
+                                <input type="hidden" name="id_anggota" value="<?php echo $r->id_anggota; ?>" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input name="nama" type="text" class="form-control" value="<?php echo $r->nama; ?>" disabled>
+                                <input name="nama" type="text" class="form-control" value="<?php echo $r->nama; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="tempat_lahir">Tempat Lahir</label>
-                                <input name="tempat_lahir" type="text" class="form-control" value="<?php echo $r->tempat_lahir; ?>" disabled>
+                                <input name="tempat_lahir" type="text" class="form-control" value="<?php echo $r->tempat_lahir; ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="tempat_lahir">Tanggal Lahir</label>
@@ -51,11 +56,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="telepon">Telepon</label>
-                                <input name="telepon" type="number" class="form-control" value="<?php echo $r->telepon; ?>" disabled>
+                                <input name="telepon" type="number" class="form-control" value="<?php echo $r->telepon; ?>" >
                             </div>
                             <div class="form-group">
                                 <label for="rembug">Rembug</label>
-                                <select type="text" name="rembug" class="form-control required" value="<?php echo $r->rembug; ?>" disabled>
+                                <select type="text" name="rembug1" class="form-control required" value="<?php echo $r->rembug; ?>" disabled>
                                     <option value="Dewan">Dewan</option>
                                     <option value="SuryaLegiNyata">Surya Legi Nyata</option>
                                     <option value="Pratama">Pratama</option>
@@ -72,29 +77,36 @@
                                     <option value="Asoka">Asoka</option>
                                     <option value="LaaTanza">LaaTanza</option>
                                 </select>
+                                <input type="hidden" name="rembug" value="<?php echo $r->rembug; ?>" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label for="setoran_awal">Setoran Awal</label>
-                                <input name="setoran_awal" type="text" class="form-control angka" value="<?php echo $r->setoran_awal; ?>" disabled>
+                                <input name="setoran_awal1" type="text" class="form-control angka" value="<?php echo $r->setoran_awal; ?>" disabled>
+                                <input type="hidden" name="setoran_awal" value="<?php echo $r->setoran_awal; ?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input name="alamat" class="form-control" value="<?php echo $r->alamat; ?>" disabled>
+                                <input name="alamat" class="form-control" value="<?php echo $r->alamat; ?>" >
                             </div>
 
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input name="username" type="text" class="form-control" value="<?php echo $r->username; ?>" disabled>
+                                <input name="username1" type="text" class="form-control" value="<?php echo $r->username; ?>" disabled>
+                                <input type="hidden" name="username" value="<?php echo $r->username; ?>"
                             </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
-                                <select type="text" name="status" class="form-control required" value="<?php echo $r->status; ?>" disabled>
+                                <select type="text" name="status1" class="form-control required" value="<?php echo $r->status; ?>" disabled>
                                     <option value="Aktif">Aktif</option>
                                     <option value="TidakAktif">Tidak Aktif</option>
                                 </select>
+                                <input type="hidden" name="status" value="<?php echo $r->status; ?>"
                             </div>
-                        <?php } ?>
+                            <p></p>
+                            <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        <?php }?>
 
                         <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">
                             <button type="button" class="btn btn-warning">Close</button>
@@ -104,13 +116,8 @@
             </div>
         </div>
 
-        <?php $this->load->view('layout/JsLayout') ?>
-        <script type="text/javascript">
-            jQuery('#datetimepicker').datetimepicker({
-                timepicker: false,
-                mask: true,
-                format: 'd/m/Y'
-            });
-        </script>
+        <?php $this->load->view('layout/JsLayout')?>
+
     </body>
 </html>
+
