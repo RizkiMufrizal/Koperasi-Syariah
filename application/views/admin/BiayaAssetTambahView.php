@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-17 20:46:14
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:28:24
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 13:12:41
  */
 -->
 
@@ -31,12 +31,12 @@
 
                         <div class="form-group">
                             <label for="kode_inventaris">Kode Inventaris</label>
-                            <input name="kode_inventaris" type="text" class="form-control" id="kode_inventaris" placeholder="masukkan Kode Inventaris anda">
+                            <input name="kode_inventaris" type="text" class="form-control" id="kode_inventaris" placeholder="masukkan Kode Inventaris anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>
-                            <input name="keterangan" type="text" class="form-control" id="keterangan" placeholder="masukkan Keterangan anda">
+                            <input name="keterangan" type="text" class="form-control" id="keterangan" placeholder="masukkan Keterangan anda" required>
                         </div>
 
                         <div class="form-group">
@@ -49,7 +49,7 @@
 
                         <div class="form-group">
                             <label for="biaya">Biaya</label>
-                            <input name="biaya" type="text" class="form-control angka" id="biaya" placeholder="masukkan Biaya anda">
+                            <input name="biaya" type="text" class="form-control angka" id="biaya" placeholder="masukkan Biaya anda" required>
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />

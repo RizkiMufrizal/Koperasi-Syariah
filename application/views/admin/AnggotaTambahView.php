@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 15:26:41
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:12:25
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 14:20:33
  */
 -->
 
@@ -12,13 +12,17 @@
 <html>
     <head>
         <title>Halaman Admin</title>
-        <?php $this->load->view('layout/CssLayout') ?>
+        <?php $this->load->view('layout/CssLayout')?>
     </head>
     <body>
 
-        <?php $this->load->view('layout/HeaderLayout') ?>
+        <?php $this->load->view('layout/HeaderLayout')?>
 
         <div id="page-wrapper">
+        <br><ol class="breadcrumb">
+            <li><a href="<?php echo base_url(); ?>index/index"><i class="fa fa-dashboard"></i> Home </a></li>
+            <li class="active">Nilai Prefensi Calon Asisten</li>
+        </ol>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Tambah Data Anggota</h1>
@@ -32,17 +36,19 @@
 
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input name="nama" type="text" class="form-control" id="password" placeholder="masukkan nama anda">
+                            <input name="nama" type="text" class="form-control" id="password" placeholder="masukkan nama anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="tempat_lahir">Tempat Lahir</label>
-                            <input name="tempat_lahir" type="text" class="form-control" id="password" placeholder="masukkan tempat lahir anda">
+                            <input name="tempat_lahir" type="text" class="form-control" id="password" placeholder="masukkan tempat lahir anda" required>
                         </div>
+
                         <div class="form-group">
                             <label for="tempat_lahir">Tanggal Lahir</label>
-                            <input id="datetimepicker" name="tanggal_lahir" type="text" class="form-control" id="password" placeholder="masukkan tanggal lahir anda">
+                            <input id="datetimepicker" name="tanggal_lahir" type="text" class="form-control" id="password" placeholder="masukkan tanggal lahir anda" required>
                         </div>
+
                         <div class="form-group">
                             <label for="jenis_kelamin">Jenis Kelamin</label>
                             <select type="text" name="jenis_kelamin" class="form-control required">
@@ -50,10 +56,12 @@
                                 <option value="P">Perempuan</option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="telepon">Telepon</label>
-                            <input name="telepon" type="number" class="form-control" id="password" placeholder="masukan nomer telepon anda"
+                            <input name="telepon" type="number" class="form-control" id="password" placeholder="masukan nomer telepon anda" required>
                         </div>
+
                         <div class="form-group">
                             <label for="rembug">Rembug</label>
                             <select type="text" name="rembug" class="form-control required">
@@ -77,20 +85,20 @@
 
                         <div class="form-group">
                             <label for="setoran_awal">Setoran Awal</label>
-                            <input name="setoran_awal" type="text" class="form-control angka" id="password" placeholder="masukkan setoran awal anda">
+                            <input name="setoran_awal" type="text" class="form-control angka" id="password" placeholder="masukkan setoran awal anda" required>
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <textarea name="alamat" type="text" class="form-control" id="password" placeholder="masukkan alamat anda"></textarea>
+                            <textarea name="alamat" type="text" class="form-control" id="password" placeholder="masukkan alamat anda" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input name="username" type="text" class="form-control" id="password" placeholder="masukkan password anda">
+                            <input name="username" type="text" class="form-control" id="password" placeholder="masukkan password anda" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input name="password" type="password" class="form-control" id="password" placeholder="masukkan password anda">
+                            <input name="password" type="password" class="form-control" id="password" placeholder="masukkan password anda" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
@@ -109,7 +117,7 @@
             </div>
         </div>
 
-        <?php $this->load->view('layout/JsLayout') ?>
+        <?php $this->load->view('layout/JsLayout')?>
         <script type="text/javascript">
             jQuery('#datetimepicker').datetimepicker({
                 timepicker: false,
