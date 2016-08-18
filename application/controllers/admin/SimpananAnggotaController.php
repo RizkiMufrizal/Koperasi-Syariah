@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-15 13:50:06
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-16 20:00:21
+ * @Last Modified time: 2016-08-17 09:38:55
  */
 
 class SimpananAnggotaController extends CI_Controller
@@ -11,6 +11,19 @@ class SimpananAnggotaController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $session = $this->session->userdata('loggedIn');
+        $role    = $this->session->userdata('role');
+        if ($session == false) {
+            $this->session->set_flashdata('pesan', 'maaf, anda belum melakukan login');
+            return redirect('/');
+        } else {
+            if ($role == 'ROLE_USER') {
+                $this->session->set_flashdata('pesan', 'maaf, anda tidak memiliki hak akses untuk halaman tersebut');
+                return redirect('/');
+            }
+        }
+
         $this->load->model('SimpananAnggota');
         $this->load->model('User');
         $this->load->model('Anggota');
@@ -94,6 +107,11 @@ class SimpananAnggotaController extends CI_Controller
         return $this->load->view('admin/SimpananAnggotaTambahPengambilanView', $csrf);
     }
 
+    /**
+     * proses simpan data pengambilan simpanan anggota
+     * @param  [type] $idAnggota [description]
+     * @return [type]            [description]
+     */
     public function simpanSimpananAnggotaPengambilan($idAnggota)
     {
 
