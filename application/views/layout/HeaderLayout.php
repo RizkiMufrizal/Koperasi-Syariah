@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 18:46:41
+ * @Last Modified time: 2016-08-18 19:07:54
  */
 -->
 
@@ -54,32 +54,32 @@
                     <a href="<?php echo base_url(); ?>index.php/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/UserController/index"><i class="fa fa-dashboard fa-fw"></i> Data User</a>
+                    <a href="<?php echo base_url(); ?>index.php/UserController/index"><i class="fa fa-user-secret fa-fw"></i> Data User</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index"><i class="fa fa-dashboard fa-fw"></i> Data Anggota</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index"><i class="fa fa-users fa-fw"></i> Data Anggota</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/index"><i class="fa fa-dashboard fa-fw"></i> Data Biaya Operasional</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaOperasionalController/index"><i class="fa fa-money fa-fw"></i> Data Biaya Operasional</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaAssetController/index"><i class="fa fa-dashboard fa-fw"></i> Data Biaya Asset</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/BiayaAssetController/index"><i class="fa fa-credit-card fa-fw"></i> Data Biaya Asset</a>
                 </li>
                 <?php } else {?>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/user/IndexController/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/indexUser"><i class="fa fa-dashboard fa-fw"></i> Data Simpanan Anggota</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/indexUser"><i class="fa fa-money fa-fw"></i> Data Simpanan Anggota</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/indexUser"><i class="fa fa-dashboard fa-fw"></i> Data Pembiayaan</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/indexUser"><i class="fa fa-credit-card fa-fw"></i> Data Pembiayaan</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/indexUser"><i class="fa fa-dashboard fa-fw"></i> Data Peminjaman Instan</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/indexUser"><i class="fa fa-credit-card-alt fa-fw"></i> Data Peminjaman Instan</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/Profile"><i class="fa fa-dashboard fa-fw"></i> Profile</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/Profile"><i class="fa fa-male fa-fw"></i> Profile</a>
                 </li>
                 <?php }?>
             </ul>
