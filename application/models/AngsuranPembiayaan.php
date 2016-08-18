@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:08:27
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 12:34:03
+ * @Last Modified time: 2016-08-18 18:25:09
  */
 
 class AngsuranPembiayaan extends CI_Model
@@ -26,6 +26,16 @@ class AngsuranPembiayaan extends CI_Model
     {
         $this->db->where('id_pembiayaan', $id_pembiayaan);
         $this->db->order_by('tanggal_pembayaran_angsuran', 'DESC');
+        return $this->db->get('tb_angsuran_pembiayaan')->result();
+    }
+
+    /**
+     * untuk mengambil semua data angsuran pembiayaan
+     * @param  string $value [description]
+     * @return [type]        [description]
+     */
+    public function ambilSemuaAngsuranPembiayaan()
+    {
         return $this->db->get('tb_angsuran_pembiayaan')->result();
     }
 

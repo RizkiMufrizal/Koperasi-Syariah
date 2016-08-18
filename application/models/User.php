@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 12:42:49
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 23:43:32
+ * @Last Modified time: 2016-08-18 18:09:39
  */
 
 class User extends CI_Model
@@ -70,6 +70,11 @@ class User extends CI_Model
     {
         $this->db->where('username', $username);
         $this->db->update('tb_user', $user);
+    }
+
+    public function ambilCountUser()
+    {
+        return $this->db->count_all_results('tb_user');
     }
 
 }
