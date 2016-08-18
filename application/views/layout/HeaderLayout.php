@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 19:07:54
+ * @Last Modified time: 2016-08-18 22:50:38
  */
 -->
 
@@ -64,6 +64,9 @@
                 </li>
                 <li>
                     <a href="<?php echo base_url(); ?>index.php/admin/BiayaAssetController/index"><i class="fa fa-credit-card fa-fw"></i> Data Biaya Asset</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url(); ?>index.php/admin/LaporanController/index"><i class="fa fa-file-pdf-o fa-fw"></i> Laporan</a>
                 </li>
                 <?php } else {?>
                 <li>
