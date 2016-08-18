@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 14:41:25
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 14:55:32
+ * @Last Modified time: 2016-08-18 18:46:41
  */
 -->
 
@@ -15,7 +15,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+        <a class="navbar-brand" href="index.html">Koperasi Syariah</a>
     </div>
     <!-- /.navbar-header -->
 
