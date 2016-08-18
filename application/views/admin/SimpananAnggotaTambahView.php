@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 17:42:30
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-17 22:02:28
+ * @Last Modified by:   Aviv Arifian D
+ * @Last Modified time: 2016-08-18 13:17:26
  */
 -->
 
@@ -31,32 +31,32 @@
 
                         <div class="form-group">
                             <label for="datetimepicker">Tanggal Transaksi</label>
-                            <input id="datetimepicker" name="tanggal_transaksi" class="form-control" placeholder="masukkan Tanggal Transaksi anda">
+                            <input id="datetimepicker" name="tanggal_transaksi" class="form-control" placeholder="masukkan Tanggal Transaksi anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="simpanan_pokok">Simpanan Pokok</label>
-                            <input name="simpanan_pokok" type="text" class="form-control angka" id="simpanan_pokok" placeholder="masukkan Simpanan Pokok anda">
+                            <input name="simpanan_pokok" type="text" class="form-control angka" id="simpanan_pokok" placeholder="masukkan Simpanan Pokok anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="simpanan_sukarela">Simpanan Sukarela</label>
-                            <input name="simpanan_sukarela" type="text" class="form-control angka" id="simpanan_sukarela" placeholder="masukkan Simpanan Sukarela anda">
+                            <input name="simpanan_sukarela" type="text" class="form-control angka" id="simpanan_sukarela" placeholder="masukkan Simpanan Sukarela anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="simpanan_hari_raya">Simpanan Hari Raya</label>
-                            <input name="simpanan_hari_raya" type="text" class="form-control angka" id="simpanan_hari_raya" placeholder="masukkan Simpanan Hari Raya anda">
+                            <input name="simpanan_hari_raya" type="text" class="form-control angka" id="simpanan_hari_raya" placeholder="masukkan Simpanan Hari Raya anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="simpanan_wajib">Simpanan Wajib</label>
-                            <input name="simpanan_wajib" type="text" class="form-control angka" id="simpanan_wajib" placeholder="masukkan Simpanan Wajib anda">
+                            <input name="simpanan_wajib" type="text" class="form-control angka" id="simpanan_wajib" placeholder="masukkan Simpanan Wajib anda" required>
                         </div>
 
                         <div class="form-group">
                             <label for="simpanan_pendidikan">Simpanan Pendidikan</label>
-                            <input name="simpanan_pendidikan" type="text" class="form-control angka" id="simpanan_pendidikan" placeholder="masukkan Simpanan Pendidikan anda">
+                            <input name="simpanan_pendidikan" type="text" class="form-control angka" id="simpanan_pendidikan" placeholder="masukkan Simpanan Pendidikan anda" required>
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
