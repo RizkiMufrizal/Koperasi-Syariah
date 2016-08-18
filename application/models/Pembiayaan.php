@@ -4,7 +4,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 12:56:42
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 18:18:06
+ * @Last Modified time: 2016-08-18 22:29:32
  */
 
 class Pembiayaan extends CI_Model
@@ -50,6 +50,17 @@ class Pembiayaan extends CI_Model
     public function ambilSemuaPembiayaan()
     {
         return $this->db->get('tb_pembiayaan')->result();
+    }
+
+    /**
+     * ambil pembiayaan berdasarkan dua tanggal
+     * @param  [type] $tanggalAwal  [description]
+     * @param  [type] $tanggalAkhir [description]
+     * @return [type]               [description]
+     */
+    public function ambilPembiayaanBerdasarkanDuaTanggal($tanggalAwal, $tanggalAkhir)
+    {
+        return $this->db->query("SELECT pembiayaan, biaya_administrasi, margin FROM tb_pembiayaan WHERE tanggal_peminjaman BETWEEN " . "'" . $tanggalAwal . "' AND '" . $tanggalAkhir . "'")->result();
     }
 
 }
