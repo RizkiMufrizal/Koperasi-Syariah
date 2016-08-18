@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 09:42:41
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 15:36:21
+ * @Last Modified time: 2016-08-18 21:55:20
  */
 -->
 
@@ -21,9 +21,10 @@
             <div class="row">
             <p></p>
                 <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
-                <li>Pembiayaan</li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li>Pembiayaan</li>
+                </ol>
                 <div class="col-lg-12">
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Pembiayaan</h1>

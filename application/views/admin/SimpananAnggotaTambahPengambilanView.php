@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-16 19:25:19
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 15:05:41
+ * @Last Modified time: 2016-08-18 21:56:11
  */
 -->
 
@@ -21,10 +21,11 @@
             <div class="row">
             <p></p>
                 <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/index/<?php echo $this->uri->segment(4); ?>">Data Simpanan Anggota</a></li>
-                <li>Tambah Pengambilan</li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/SimpananAnggotaController/index/<?php echo $this->uri->segment(4); ?>">Data Simpanan Anggota</a></li>
+                    <li>Tambah Pengambilan</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Tambah Data Pengambilan Simpanan Anggota</h1>
                 </div>

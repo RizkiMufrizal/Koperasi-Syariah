@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 14:32:21
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 14:43:47
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 21:55:38
  */
 -->
 
@@ -19,6 +19,13 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/index/<?php echo $this->uri->segment(5); ?>">Data Peminjaman Instan</a></li>
+                    <li>Bayar Peminjaman Instan</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Bayar Peminjaman Instan</h1>
                 </div>

@@ -4,7 +4,7 @@
  * @Date:   2016-08-16 13:11:14
 <<<<<<< HEAD
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:52:03
+ * @Last Modified time: 2016-08-18 21:54:17
 =======
  * @Last Modified by:   RizkiMufrizal
  * @Last Modified time: 2016-08-18 13:46:19
@@ -27,8 +27,9 @@
             <div class="row">
             <p></p>
                 <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li>Data Anggota</li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li>Data Anggota</li>
+                </ol>
                 <div class="col-lg-12">
 
                     <h1 class="page-header">Data Anggota</h1>

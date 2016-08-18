@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-17 11:35:57
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:58:21
+ * @Last Modified time: 2016-08-18 21:54:07
  */
 -->
 <!DOCTYPE html>
@@ -22,9 +22,10 @@
             <div class="row">
             <p></p>
                 <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
-                <li>Data Anggota</li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li>Data Anggota</li>
+                </ol>
                 <div class="col-lg-12">
 
                     <h1 class="page-header">Detail Anggota</h1>

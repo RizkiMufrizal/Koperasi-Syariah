@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 12:18:47
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 15:46:43
+ * @Last Modified time: 2016-08-18 21:54:48
  */
 -->
 
@@ -21,11 +21,12 @@
             <div class="row">
             <p></p>
                 <ol class="breadcrumb">
-                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/index/<?php echo $this->uri->segment(5); ?>">Pembiayaan</a></li>
-                <li><a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/index/<?php echo $this->uri->segment(4); ?>/<?php echo $this->uri->segment(5); ?>">Data Angsuran Pembiayaan</a></li>
-                <li>Data Angsuran Pembiayaan</li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/PembiayaanController/index/<?php echo $this->uri->segment(5); ?>">Pembiayaan</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AngsuranPembiayaanController/index/<?php echo $this->uri->segment(4); ?>/<?php echo $this->uri->segment(5); ?>">Data Angsuran Pembiayaan</a></li>
+                    <li>Data Angsuran Pembiayaan</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Tambah Data Angsuran Pembiayaan</h1>
                 </div>
