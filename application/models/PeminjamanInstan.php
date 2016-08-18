@@ -4,7 +4,7 @@
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 06:21:55
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 18:19:06
+ * @Last Modified time: 2016-08-18 22:41:20
  */
 
 class PeminjamanInstan extends CI_Model
@@ -50,6 +50,17 @@ class PeminjamanInstan extends CI_Model
     public function ambilSemuaPeminjamanInstan()
     {
         return $this->db->get('tb_peminjaman_instan')->result();
+    }
+
+    /**
+     * ambil peminjaman instan berdasarkan dua tanggal
+     * @param  [type] $tanggalAwal  [description]
+     * @param  [type] $tanggalAkhir [description]
+     * @return [type]               [description]
+     */
+    public function ambilPeminjamanInstanBerdasarkanDuaTanggal($tanggalAwal, $tanggalAkhir)
+    {
+        return $this->db->query("SELECT bagi_hasil, biaya_administrasi FROM tb_peminjaman_instan WHERE tanggal_peminjaman BETWEEN " . "'" . $tanggalAwal . "' AND '" . $tanggalAkhir . "'")->result();
     }
 
 }
