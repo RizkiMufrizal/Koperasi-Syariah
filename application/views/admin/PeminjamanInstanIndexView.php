@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 13:16:38
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 14:47:50
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 21:55:47
  */
 -->
 
@@ -19,6 +19,12 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                    <li>Data Peminjaman Instan</li>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Data Peminjaman Instan</h1>
                 </div>
@@ -73,17 +79,17 @@
                                     <td><?php echo $s->keterangan; ?></td>
                                     <td><?php if ($s->status == 0) {echo "BELUM LUNAS";} else {echo "SUDAH LUNAS";}?></td>
                                     <td class="text-center">
-                                    	<?php if ($s->status == 0) {?>
-                                    		<a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/editPeminjamanInstan/<?php echo $s->id_peminjaman_instan; ?>/<?php echo $this->uri->segment(4); ?>">
+                                        <?php if ($s->status == 0) {?>
+                                            <a href="<?php echo base_url(); ?>index.php/admin/PeminjamanInstanController/editPeminjamanInstan/<?php echo $s->id_peminjaman_instan; ?>/<?php echo $this->uri->segment(4); ?>">
                                             <button class="btn btn-success">
                                                 Bayar
                                             </button>
                                         </a>
-                                    	<?php } else {?>
-                                    		<button class="btn btn-success" disabled>
+                                        <?php } else {?>
+                                            <button class="btn btn-success" disabled>
                                                 Bayar
                                             </button>
-                                    	<?php }?>
+                                        <?php }?>
                                     </td>
                                 </tr>
                             <?php }?>
