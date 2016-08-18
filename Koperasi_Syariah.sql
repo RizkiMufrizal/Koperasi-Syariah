@@ -2,7 +2,7 @@
 * @Author: Rizki Mufrizal
 * @Date:   2016-08-14 13:18:07
 * @Last Modified by:   RizkiMufrizal
-* @Last Modified time: 2016-08-17 22:43:11
+* @Last Modified time: 2016-08-18 14:26:40
 */
 
 CREATE DATABASE koperasi_syariah;
@@ -82,12 +82,13 @@ CREATE TABLE tb_peminjaman_instan(
   id_peminjaman_instan VARCHAR(50) NOT NULL PRIMARY KEY,
   tanggal_peminjaman DATE NOT NULL,
   tanggal_jatuh_tempo DATE NOT NULL,
-  tanggal_pengembalian DATE NOT NULL,
+  tanggal_pengembalian DATE DEFAULT NULL,
   pinjaman DECIMAL NOT NULL,
-  pengembalian DECIMAL NOT NULL,
+  total_pinjaman DECIMAL NOT NULL,
   bagi_hasil DECIMAL NOT NULL,
   biaya_administrasi DECIMAL NOT NULL,
   keterangan CHAR(15) NOT NULL,
+  status TINYINT NOT NULL,
   id_anggota VARCHAR(50) NOT NULL,
   FOREIGN KEY(id_anggota) REFERENCES tb_anggota(id_anggota)
     ON DELETE CASCADE

@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-15 15:01:26
- * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-15 15:09:23
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 14:46:55
  */
 -->
 
@@ -19,6 +19,10 @@
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+            <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
                 </div>

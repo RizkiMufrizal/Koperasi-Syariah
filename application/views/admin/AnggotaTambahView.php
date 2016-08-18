@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 15:26:41
- * @Last Modified by:   Aviv Arifian D
- * @Last Modified time: 2016-08-18 14:20:33
+ * @Last Modified by:   adhibarfan
+ * @Last Modified time: 2016-08-18 14:53:01
  */
 -->
 
@@ -19,11 +19,12 @@
         <?php $this->load->view('layout/HeaderLayout')?>
 
         <div id="page-wrapper">
-        <br><ol class="breadcrumb">
-            <li><a href="<?php echo base_url(); ?>index/index"><i class="fa fa-dashboard"></i> Home </a></li>
-            <li class="active">Nilai Prefensi Calon Asisten</li>
-        </ol>
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                <li>Tambah Anggota</li>
                 <div class="col-lg-12">
                     <h1 class="page-header">Tambah Data Anggota</h1>
                 </div>

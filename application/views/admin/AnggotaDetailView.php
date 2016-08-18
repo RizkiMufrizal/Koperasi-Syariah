@@ -3,7 +3,7 @@
  * @Author: Adhib Arfan<adhib.arfan@gmail.com>
  * @Date:   2016-08-17 11:35:57
  * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 14:08:16
+ * @Last Modified time: 2016-08-18 14:58:21
  */
 -->
 <!DOCTYPE html>
@@ -14,15 +14,24 @@
     </head>
     <body>
 
+
         <?php $this->load->view('layout/HeaderLayout')?>
+
 
         <div id="page-wrapper">
             <div class="row">
+            <p></p>
+                <ol class="breadcrumb">
+                <li><a href="<?php echo base_url(); ?>index.php/admin/">Home</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/AnggotaController/index">Data Anggota</a></li>
+                <li>Data Anggota</li>
                 <div class="col-lg-12">
+
                     <h1 class="page-header">Detail Anggota</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
             <!-- /.row -->
             <?php foreach ($record as $r) {?>
                 <div class="row">
