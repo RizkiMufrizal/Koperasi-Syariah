@@ -2,8 +2,8 @@
 /**
  * @Author: Aviv Arifian D
  * @Date:   2016-08-16 15:26:41
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 21:54:31
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-19 18:56:52
  */
 -->
 
@@ -34,6 +34,14 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+
+                    <?php if ($this->session->flashdata('pesan') != null) {?>
+                        <div id="error" style="text-align: center" class="alert alert-danger">
+                            <a href="" class="close" data-dismiss="alert"> &times; </a>
+                            <strong>Error</strong><p></p> <?php echo $this->session->flashdata('pesan'); ?>
+                        </div>
+                    <?php }?>
+
                     <form method="post" action="<?php echo base_url(); ?>index.php/admin/AnggotaController/simpanAnggota">
 
                         <div class="form-group">
