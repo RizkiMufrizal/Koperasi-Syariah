@@ -2,8 +2,8 @@
 /**
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-17 09:49:57
- * @Last Modified by:   adhibarfan
- * @Last Modified time: 2016-08-18 21:55:31
+ * @Last Modified by:   RizkiMufrizal
+ * @Last Modified time: 2016-08-19 14:41:06
  */
 -->
 
@@ -61,7 +61,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
+                        <div id="margin1" class="form-group">
                             <label for="margin">Margin</label>
                             <input type="number" id="margin" name="margin" class="form-control" placeholder="masukkan Margin anda" required>
                         </div>
@@ -87,6 +87,19 @@
                 timepicker: false,
                 mask: true,
                 format: 'd/m/Y'
+            });
+            $(document).ready(function(){
+                $('#margin1').hide();
+                $('#jenis_pembiayaan').change(function () {
+                    var val = $('#jenis_pembiayaan').val();
+                    if(val == 'Murobaah') {
+                        $('#margin1').show();
+                    } else if(val == 'Ijarah') {
+                        $('#margin1').show();
+                    } else {
+                        $('#margin1').hide();
+                    }
+                });
             });
         </script>
     </body>
