@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 21:52:27
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 22:39:12
+ * @Last Modified time: 2016-08-19 14:42:37
  */
 -->
 <!DOCTYPE html>
@@ -21,12 +21,12 @@
             <p></p>
                 <ol class="breadcrumb">
                 <li>
-                	<a href="<?php echo base_url(); ?>index.php/admin/">Home</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/">Home</a>
                 </li>
                 <li>
-                	Laporan
+                    Laporan
                 </li>
-             	</ol>
+                </ol>
                 <div class="col-lg-12">
                     <h1 class="page-header">Laporan</h1>
                 </div>
@@ -34,7 +34,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <form method="post" action="<?php echo base_url(); ?>index.php/admin/LaporanController/laporanBerdasarkanTanggal">
 
                         <div class="form-group">
@@ -45,23 +45,6 @@
                         <div class="form-group">
                             <label for="datetimepicker2">Tanggal Akhir</label>
                             <input id="datetimepicker2" name="tanggal_akhir" class="form-control" placeholder="masukkan Tanggal Akhir anda" required>
-                        </div>
-
-                        <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
-                        <button type="submit" class="btn btn-primary">Proses</button>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/LaporanController/laporanBerdasarkanBulan">
-
-                        <div class="form-group">
-                            <label for="bulanAwal">Bulan Awal</label>
-                            <input id="bulanAwal" name="bulanAwal" class="form-control" placeholder="masukkan Tanggal Awal anda" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="bulanAkhir">Bulan Akhir</label>
-                            <input id="bulanAkhir" name="bulanAkhir" class="form-control" placeholder="masukkan Bulan Akhir anda" required>
                         </div>
 
                         <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $hash; ?>" />
