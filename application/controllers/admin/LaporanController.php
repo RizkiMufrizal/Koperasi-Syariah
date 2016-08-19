@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 21:50:13
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-19 18:53:10
+ * @Last Modified time: 2016-08-19 19:54:00
  */
 class LaporanController extends CI_Controller
 {
@@ -125,6 +125,38 @@ class LaporanController extends CI_Controller
         $jumlahPendapatan = $jumlahBiayaAdministrasi + $jumlahMarginMurobaah + $jumlahMarginIjarah + $jumlahBagiHasilAnggota + $jumlahBagiHasilKoperasi;
 
         $jumlahPengeluaran = $jumlahGajiPengelola + $jumlahHonorPengurusDanPengawas + $jumlahATK + $jumlahListrikDanTelepon + $jumlahTransportasi + $jumlahAirMineralDanRumahTangga + $jumlahLainlain;
+
+        /**
+         * list pendapatan
+         */
+        $data['jumlahBiayaAdministrasi'] = $jumlahBiayaAdministrasi;
+        $data['jumlahMarginMurobaah']    = $jumlahMarginMurobaah;
+        $data['jumlahMarginIjarah']      = $jumlahMarginIjarah;
+        $data['jumlahBagiHasilAnggota']  = $jumlahBagiHasilAnggota;
+        $data['jumlahBagiHasilKoperasi'] = $jumlahBagiHasilKoperasi;
+        $data['jumlahPendapatan']        = $jumlahPendapatan;
+
+        /**
+         * list pengeluaran
+         */
+        $data['jumlahGajiPengelola']            = $jumlahGajiPengelola;
+        $data['jumlahHonorPengurusDanPengawas'] = $jumlahHonorPengurusDanPengawas;
+        $data['jumlahATK']                      = $jumlahATK;
+        $data['jumlahListrikDanTelepon']        = $jumlahListrikDanTelepon;
+        $data['jumlahTransportasi']             = $jumlahTransportasi;
+        $data['jumlahAirMineralDanRumahTangga'] = $jumlahAirMineralDanRumahTangga;
+        $data['jumlahLainlain']                 = $jumlahLainlain;
+
+        /**
+         * keuntungan koperasi
+         */
+        $data['keuntunganKoperasi'] = $jumlahPendapatan - $jumlahPengeluaran;
+
+        $this->load->library('pdf');
+        $pdf  = $this->pdf->load();
+        $html = $this->load->view('admin/PrintPDFView', $data, true);
+        $pdf->WriteHTML($html);
+        $pdf->Output();
     }
 
 }
