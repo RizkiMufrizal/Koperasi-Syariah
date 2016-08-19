@@ -3,7 +3,7 @@
  * @Author: Rizki Mufrizal <mufrizalrizki@gmail.com>
  * @Date:   2016-08-18 21:50:13
  * @Last Modified by:   RizkiMufrizal
- * @Last Modified time: 2016-08-18 22:47:54
+ * @Last Modified time: 2016-08-19 14:42:49
  */
 class LaporanController extends CI_Controller
 {
@@ -41,11 +41,6 @@ class LaporanController extends CI_Controller
         $peminjamanInstan   = $this->PeminjamanInstan->ambilPeminjamanInstanBerdasarkanDuaTanggal($satukan1, $satukan2);
         $angsuranPembiayaan = $this->AngsuranPembiayaan->ambilAngsuranPembiayaanBerdasarkanDuaTanggal($satukan1, $satukan2);
         $biayaOperasional   = $this->BiayaOperasional->ambilBiayaOperasionalBerdasarkanDuaTanggal($satukan1, $satukan1);
-    }
-
-    public function laporanBerdasarkanBulan()
-    {
-
     }
 
 }
